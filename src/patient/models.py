@@ -30,11 +30,15 @@ class Patient(models.Model):
     )
 
 
+def user_directory_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return 'user_{0}/{1}'.format(instance.user.id, filename)
+
 class Attachment(models.Model):
     """this class is for the django orm, it gives the parameters for the
     creation of the table of the same name in the psql database."""
     document_name = models.CharField(max_length=80, blank=False, null=False)
-    document_join = models.FileField(null=False)
+    document_join = models.FileField(upload_to=user_directory_path, null=False)
     comment = models.TextField(blank=True, default="NC")
     patient_unique_id = models.ForeignKey(
         Patient, on_delete=models.CASCADE, verbose_name="Piece jointe"

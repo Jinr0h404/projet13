@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
-from home.views import HomeView, AdminView
+from home.views import HomeView, LoginAdminView, HomeAdminView, LogoutAdminView
 
 urlpatterns = [
     path('gestionbdd/', admin.site.urls),
     path('', HomeView.as_view(), name="home-index"),
     path('home', include("home.urls")),
-    path('gestionosteo/', AdminView.as_view(), name="admin-index"),
+    path('gestionosteo/', LoginAdminView.as_view(), name="home-signin"),
+    path('gestionosteo/logout', LogoutAdminView.as_view(), name="home-signout"),
+    path('gestionosteo/admin', HomeAdminView.as_view(), name="admin-index"),
     path('gestionosteo/patient', include("patient.urls")),
 ]

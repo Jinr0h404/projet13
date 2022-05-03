@@ -7,7 +7,7 @@ from django.views import View
 class PatientView(View):
     def get(self, request):
         form = ContactForm(initial={'email': 'jojo@jojo.com'})
-        return render(request, "home/index_admin.html", {'form': form})
+        return render(request, "patient/index_patient.html", {'form': form})
 
     def post(self, request):
         form = ContactForm(request.POST)

@@ -11510,6 +11510,9 @@ html {
 }
 
 
+
+/* from here, css is for calendar */
+/* from here, css is for calendar */
 /* from here, css is for calendar */
 /* from here, css is for calendar */
 .bg-light-gray {
@@ -11620,4 +11623,51 @@ html {
     padding: .75rem;
     vertical-align: top;
     border-top: 1px solid #dee2e6;
+}
+
+
+
+/* cal/static/cal/css/styles.css */
+/* cal/static/cal/css/styles.css */
+/* cal/static/cal/css/styles.css */
+/* cal/static/cal/css/styles.css */
+
+.calendar {
+  width: 98%;
+  margin: auto;
+  font-size: 13px;
+}
+
+.calendar tr, .calendar td {
+  border: 1px solid black;
+}
+
+.calendar th {
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.calendar td {
+  width: 200px;
+  height: 150px;
+  padding: 20px 0px 0px 5px;
+}
+
+.month {
+  font-size: 25px;
+}
+
+.date {
+  font-size: 16px;
+}
+
+td ul {
+  height: 100%;
+  padding: 0px 5px 0px 20px;
+}
+
+
+#planning {
+    margin: 40px 10px;
 }

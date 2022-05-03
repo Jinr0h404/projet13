@@ -26,7 +26,7 @@ class Patient(models.Model):
     pathology = models.TextField(blank=True, default="NC")
     comment = models.TextField(blank=True, default="NC")
     adresse_unique_id = models.ForeignKey(
-        Address, on_delete=models.RESTRICT, verbose_name="Adresse"
+        Address, on_delete=models.RESTRICT, verbose_name="Adresse", blank=True, null=True
     )
 
 

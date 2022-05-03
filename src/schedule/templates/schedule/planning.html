@@ -1,0 +1,105 @@
+{% extends 'base_admin.html' %}
+
+{% block head_shedule_content %}
+{% load static %}
+
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          themeSystem: 'bootstrap5',
+          headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+          },
+          navLinks: true, // can click day/week names to navigate views
+          businessHours: true, // display business hours
+          editable: true,
+          selectable: true,
+          weekNumbers: true,
+          events: [
+            {
+              title: 'Business Lunch',
+              start: '2020-09-03T13:00:00',
+              constraint: 'businessHours'
+            },
+            {
+              title: 'Meeting',
+              start: '2020-09-13T11:00:00',
+              constraint: 'availableForMeeting', // defined below
+              color: '#257e4a'
+            },
+            {
+              title: 'Conference',
+              start: '2020-09-18',
+              end: '2020-09-20'
+            },
+            {
+              title: 'Party',
+              start: '2020-09-29T20:00:00'
+            },
+
+            // areas where "Meeting" must be dropped
+            {
+              groupId: 'availableForMeeting',
+              start: '2020-09-11T10:00:00',
+              end: '2020-09-11T16:00:00',
+              display: 'background'
+            },
+            {
+              groupId: 'availableForMeeting',
+              start: '2020-09-13T10:00:00',
+              end: '2020-09-13T16:00:00',
+              display: 'background'
+            },
+
+            // red areas where no events can be dropped
+            {
+              start: '2020-09-24',
+              end: '2020-09-28',
+              overlap: false,
+              display: 'background',
+              color: '#ff9f89'
+            },
+            {
+              start: '2020-09-06',
+              end: '2020-09-08',
+              overlap: false,
+              display: 'background',
+              color: '#ff9f89'
+            }
+          ]
+        });
+        calendar.render();
+      });
+
+    </script>
+    <style>
+      #calendar {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+    </style>
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<section class="page-section portfolio" id="planning">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Planning</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div id='calendar'></div>
+            </div>
+</section>
+{% endblock %}

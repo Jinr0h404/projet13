@@ -23,7 +23,8 @@ urlpatterns = [
     path('', HomeView.as_view(), name="home-index"),
     path('home', include("home.urls")),
     path('gestionosteo/', LoginAdminView.as_view(), name="home-signin"),
-    path('gestionosteo/logout', LogoutAdminView.as_view(), name="home-signout"),
-    path('gestionosteo/admin', HomeAdminView.as_view(), name="admin-index"),
-    path('gestionosteo/patient', include("patient.urls")),
+    path('gestionosteo/logout/', LogoutAdminView.as_view(), name="home-signout"),
+    path('gestionosteo/admin/', HomeAdminView.as_view(), name="admin-index"),
+    path('gestionosteo/patient/', include("patient.urls")),
+    path('gestionosteo/schedule/', include("schedule.urls")),
 ]

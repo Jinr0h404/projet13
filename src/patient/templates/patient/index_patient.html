@@ -55,6 +55,144 @@
         </section>
 
 {% endblock %}
+{% block portfolioOpen %}
+<!-- Portfolio Modals-->
+        <!-- Portfolio Modal 1-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-12">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Nouvau patient</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Contact Section Form-->
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-6">
+                                            <form id="contactForm" method="post">
+                                                {% csrf_token %}
+                                                <!-- Last Name input-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Enter your name..." />
+                                                    <label for="last_name">Nom</label>
+                                                </div>
+                                                <!-- First Name input-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="first_name" name="first_name" type="text" placeholder="Enter your name..." />
+                                                    <label for="first_name">Prénom</label>
+                                                </div>
+                                                <!-- Email address input-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="mail" name="mail" type="email" placeholder="name@example.com" />
+                                                    <label for="mail">Email</label>
+                                                </div>
+                                                <!-- birthday-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="birth_date" name="birth_date" type="date" placeholder="Enter your name..." />
+                                                    <label for="birth_date">Date de naissance</label>
+                                                </div>
+                                                <!-- Phone number input-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="phone" name="phone" type="tel" placeholder="(123) 456-7890" />
+                                                    <label for="phone">Numéro de téléphone</label>
+                                                </div>
+                                                <!-- Medical device input-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <textarea class="form-control" id="medical_device" name="medical_device" type="text" placeholder="Enter your message here..." style="height: 10rem" ></textarea>
+                                                    <label for="medical_device">Dispositif médicale</label>
+                                                </div>
+                                                <!-- Submit success message-->
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                                <!-- Job-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="job" name="job" type="text" placeholder="situation professionnelle" />
+                                                    <label for="job">Profession</label>
+                                                </div>
+                                                <!-- drug input-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="drug" name="drug" type="text" placeholder="traitements" />
+                                                    <label for="drug">Traitement en cours</label>
+                                                </div>
+                                                <!-- Pathology input-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <textarea class="form-control" id="pathology" name="pathology" type="text" placeholder="Enter your message here..." style="height: 10rem" ></textarea>
+                                                    <label for="pathology">Antécédants médicaux chirurgicaux</label>
+                                                </div>
+                                                <!-- Commentinput-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <textarea class="form-control" id="comment" name="comment" type="text" placeholder="Enter your message here..." style="height: 10rem" ></textarea>
+                                                    <label for="comment">Commentaire</label>
+                                                </div>
+                                        </div>
+                                        <!-- Glasses input-->
+                                        <div class="row justify-content-start">
+                                                <div class="col-4 text-left">
+                                                    <label for="glasses" class="text-left">Dispositif correctif de vision</label>
+                                                    <input id="glasses" name="glasses" type="checkbox" />
+                                                </div>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-12 col-xl-3">
+                                                <!-- Submit Button-->
+                                                <div class="form-actions">
+                                                    <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Créer</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </form>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 2-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="{% static 'assets/img/portfolio/cake.png' %}" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
 {% block script_content %}
 <script type="text/javascript">
 {% endblock %}

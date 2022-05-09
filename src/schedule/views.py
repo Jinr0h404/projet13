@@ -14,9 +14,8 @@ from .models import *
 
 
 # Create your views here.
-class ScheduleView(View):
-    def get(self, request):
-        return render(request, "schedule/planning.html")
+class ScheduleView(LoginRequiredMixin, View):
+    template_name = "schedule/planning.html"
 
 
 class ScheduleCalendarView(LoginRequiredMixin, View):

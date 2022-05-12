@@ -45,7 +45,7 @@
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><h2>Gérer Patient</h2></i></div>
+                                <div class="portfolio-item-caption-content text-center text-white"><h2>Gestion Patient</h2></i></div>
                             </div>
                             <img class="img-fluid" src="{% static 'assets/img/portfolio/cake.png' %}" alt="..." />
                         </div>
@@ -81,12 +81,12 @@
                                                 {% csrf_token %}
                                                 <!-- Last Name input-->
                                                 <div class="form-floating mb-3 form-group">
-                                                    <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Enter your name..." />
+                                                    <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Enter your lastname" />
                                                     <label for="last_name">Nom</label>
                                                 </div>
                                                 <!-- First Name input-->
                                                 <div class="form-floating mb-3 form-group">
-                                                    <input class="form-control" id="first_name" name="first_name" type="text" placeholder="Enter your name..." />
+                                                    <input class="form-control" id="first_name" name="first_name" type="text" placeholder="Enter your firstname" />
                                                     <label for="first_name">Prénom</label>
                                                 </div>
                                                 <!-- Email address input-->
@@ -96,17 +96,17 @@
                                                 </div>
                                                 <!-- birthday-->
                                                 <div class="form-floating mb-3 form-group">
-                                                    <input class="form-control" id="birth_date" name="birth_date" type="date" placeholder="Enter your name..." />
+                                                    <input class="form-control" id="birth_date" name="birth_date" type="date" placeholder="Enter your birthday" />
                                                     <label for="birth_date">Date de naissance</label>
                                                 </div>
                                                 <!-- Phone number input-->
                                                 <div class="form-floating mb-3 form-group">
-                                                    <input class="form-control" id="phone" name="phone" type="tel" placeholder="(123) 456-7890" />
+                                                    <input class="form-control" id="phone" name="phone" type="tel" placeholder="phone number" />
                                                     <label for="phone">Numéro de téléphone</label>
                                                 </div>
                                                 <!-- Medical device input-->
                                                 <div class="form-floating mb-3 form-group">
-                                                    <textarea class="form-control" id="medical_device" name="medical_device" type="text" placeholder="Enter your message here..." style="height: 10rem" ></textarea>
+                                                    <textarea class="form-control" id="medical_device" name="medical_device" type="text" placeholder="pacemaker..." style="height: 10rem" ></textarea>
                                                     <label for="medical_device">Dispositif médicale</label>
                                                 </div>
                                                 <!-- Submit success message-->
@@ -125,12 +125,12 @@
                                                 </div>
                                                 <!-- Pathology input-->
                                                 <div class="form-floating mb-3 form-group">
-                                                    <textarea class="form-control" id="pathology" name="pathology" type="text" placeholder="Enter your message here..." style="height: 10rem" ></textarea>
+                                                    <textarea class="form-control" id="pathology" name="pathology" type="text" placeholder="antécédants médicaux..." style="height: 10rem" ></textarea>
                                                     <label for="pathology">Antécédants médicaux chirurgicaux</label>
                                                 </div>
-                                                <!-- Commentinput-->
+                                                <!-- Comment input-->
                                                 <div class="form-floating mb-3 form-group">
-                                                    <textarea class="form-control" id="comment" name="comment" type="text" placeholder="Enter your message here..." style="height: 10rem" ></textarea>
+                                                    <textarea class="form-control" id="comment" name="comment" type="text" placeholder="Commentaire..." style="height: 10rem" ></textarea>
                                                     <label for="comment">Commentaire</label>
                                                 </div>
                                         </div>
@@ -142,6 +142,31 @@
                                                 </div>
                                         </div>
                                         <div class="row justify-content-center">
+                                        <div class="col-lg-6">
+                                                <!-- Address street number-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="street_number" name="street_number" type="text" placeholder="Enter your lastname" />
+                                                    <label for="street_number">Numéro de rue</label>
+                                                </div>
+                                                <!-- Address street name-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="street" name="street" type="text" placeholder="Enter your firstname" />
+                                                    <label for="street">Nom de la rue</label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <!-- Zip_code-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="zip_code" name="zip_code" type="text" placeholder="Enter your lastname" />
+                                                    <label for="zip_code">Code postal</label>
+                                                </div>
+                                                <!-- city-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="city" name="city" type="text" placeholder="Enter your firstname" />
+                                                    <label for="city">Ville</label>
+                                                </div>
+                                        </div>
+                                        <div class="row justify-content-center">
                                             <div class="col-lg-12 col-xl-3">
                                                 <!-- Submit Button-->
                                                 <div class="form-actions">
@@ -150,8 +175,6 @@
                                             </div>
                                         </div>
                                         </form>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -159,6 +182,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- Portfolio Modal 2-->
         <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
@@ -170,21 +194,22 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Rechercher un patient</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-bone"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="{% static 'assets/img/portfolio/cake.png' %}" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
+                                    <form class="col-md-6 col-md-offset-3 text-center form_search" action="{% url 'search'%}" method="get" accept-charset="utf-8">
+                                        <div class="form-group div_form_search">
+                                            <input id="searchForm" class="form-control" placeholder="Nom de patient" name="query">
+                                        </div>
+                                        <!-- Submit Button-->
+                                        <div class="form-actions">
+                                            <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Chercher</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

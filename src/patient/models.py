@@ -1,6 +1,8 @@
 from django.db import models
-
+from django.urls import reverse
 # Create your models here.
+
+
 class Address(models.Model):
     """this class is for the django orm, it gives the parameters for the
     creation of the table of the same name in the psql database."""
@@ -29,10 +31,13 @@ class Patient(models.Model):
         Address, on_delete=models.RESTRICT, verbose_name="Adresse", blank=True, null=True
     )
 
+    def get_absolute_url(self):
+        return reverse('patient', kwargs={'pk': self.pk})
 
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     return 'user_{0}/{1}'.format(instance.user.id, filename)
+
 
 class Attachment(models.Model):
     """this class is for the django orm, it gives the parameters for the

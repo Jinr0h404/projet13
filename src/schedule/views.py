@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import View
+from django.views.generic import TemplateView
 from .models import Planning
 from datetime import datetime, timedelta
 from django.http import HttpResponse
@@ -9,12 +10,11 @@ import calendar
 import json
 from django.http import JsonResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
-
 from .models import *
 
 
 # Create your views here.
-class ScheduleView(LoginRequiredMixin, View):
+class ScheduleView(LoginRequiredMixin, TemplateView):
     template_name = "schedule/planning.html"
 
 
@@ -28,7 +28,7 @@ class ScheduleCalendarView(LoginRequiredMixin, View):
             event_sub_arr['title'] = i.reason
             start_date = datetime.strptime(str(i.appointment_date_start.date()), "%Y-%m-%d").strftime("%Y-%m-%d")
             hour_start = datetime.strptime(str(i.appointment_date_start.time()), "%H:%M:%S").strftime("%H:%M:%S")
-            hour_stop = datetime.strptime(str(i.appointment_hour_stop.time()),"%H:%M:%S").strftime("%H:%M:%S")
+            hour_stop = datetime.strptime(str(i.appointment_hour_stop.time()), "%H:%M:%S").strftime("%H:%M:%S")
             print(hour_start)
             end_date = datetime.strptime(str(i.appointment_hour_stop.date()), "%Y-%m-%d").strftime("%Y-%m-%d")
             event_sub_arr['start'] = start_date+'T'+hour_start
@@ -36,9 +36,9 @@ class ScheduleCalendarView(LoginRequiredMixin, View):
             event_arr.append(event_sub_arr)
         data = JsonResponse((event_arr), safe=False)
         datatest = json.dumps(event_arr)
-            #return HttpResponse(json.dumps(event_arr), content_type='application/json'))
-        #print(datatest, type(datatest))
-        #return HttpResponse(json.dumps(event_arr))
+            # return HttpResponse(json.dumps(event_arr), content_type='application/json'))
+        # print(datatest, type(datatest))
+        # return HttpResponse(json.dumps(event_arr))
         context = {
             "appointment": datatest
         }

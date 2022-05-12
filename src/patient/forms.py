@@ -1,5 +1,5 @@
 from django import forms
-from patient.models import Patient
+from patient.models import Patient, Address
 
 class CreatePatientForm(forms.ModelForm):
     class Meta:
@@ -16,4 +16,16 @@ class CreatePatientForm(forms.ModelForm):
             "drug",
             "pathology",
             "comment",
+        ]
+
+
+class CreateAddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields =[
+            "street_number",
+            "street",
+            "zip_code",
+            "city",
+            "additional",
         ]

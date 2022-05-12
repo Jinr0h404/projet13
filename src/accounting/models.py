@@ -1,6 +1,7 @@
 from django.db import models
 from schedule.models import Session
 
+
 # Create your models here.
 class Price(models.Model):
     """this class is for the django orm, it gives the parameters for the

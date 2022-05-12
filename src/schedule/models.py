@@ -2,6 +2,7 @@ from django.utils import timezone
 from django.db import models
 from patient.models import Patient
 
+
 # Create your models here.
 class Planning(models.Model):
     """this class is for the django orm, it gives the parameters for the

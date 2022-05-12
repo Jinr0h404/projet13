@@ -1,0 +1,34 @@
+{% extends 'base_admin.html' %}
+
+{% block content %}
+{% load static %}
+<!-- Masthead-->
+        <header class="masthead bg-primary text-white">
+            <div class="container">
+                <div class="row">
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0 text-center">patient</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                </div>
+                <!-- Masthead Subheading-->
+                <div class="row ">
+                    <div class="col-lg-6">
+                        {% for patient in patient %}
+                        <a href="{% url 'patient' pk=patient.pk %}">
+                            <h2>{{ patient.last_name }} {{ patient.first_name }} né le {{ patient.birth_date }}</h2>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </header>
+{% endblock %}
+
+{% block script_content %}
+<script type="text/javascript">
+{% endblock %}

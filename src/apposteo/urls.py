@@ -18,6 +18,7 @@ from django.conf.urls import include
 from django.urls import path
 from home.views import HomeView, LoginAdminView, HomeAdminView, LogoutAdminView
 
+
 urlpatterns = [
     path('gestionbdd/', admin.site.urls),
     path('', HomeView.as_view(), name="home-index"),

@@ -20,7 +20,7 @@
                     <div class="col-lg-6">
                         {% for patient in patient %}
                         <a href="{% url 'patient' pk=patient.pk %}">
-                            <h2>{{ patient.last_name }} {{ patient.first_name }} né le {{ patient.birth_date }}</h2>
+                            <h3 class="lead text-white">{{ patient.last_name }} {{ patient.first_name }} né le {{ patient.birth_date }}</h3>
                         </a>
                         {% endfor %}
                     </div>

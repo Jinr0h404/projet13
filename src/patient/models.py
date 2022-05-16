@@ -3,16 +3,6 @@ from django.urls import reverse
 # Create your models here.
 
 
-class Address(models.Model):
-    """this class is for the django orm, it gives the parameters for the
-    creation of the table of the same name in the psql database."""
-    street_number = models.IntegerField(blank=True)
-    street = models.CharField(max_length=200, blank=True)
-    zip_code = models.CharField(max_length=5, blank=True)
-    city = models.CharField(max_length=150, blank=True)
-    additional = models.CharField(max_length=200, blank=True)
-
-
 class Patient(models.Model):
     """this class is for the django orm, it gives the parameters for the
     creation of the table of the same name in the psql database."""
@@ -27,9 +17,6 @@ class Patient(models.Model):
     drug = models.TextField(blank=True, default="NC")
     pathology = models.TextField(blank=True, default="NC")
     comment = models.TextField(blank=True, default="NC")
-    adresse_unique_id = models.ForeignKey(
-        Address, on_delete=models.RESTRICT, verbose_name="Adresse", blank=True, null=True
-    )
 
     def get_absolute_url(self):
         return reverse('patient', kwargs={'pk': self.pk})
@@ -47,4 +34,17 @@ class Attachment(models.Model):
     comment = models.TextField(blank=True, default="NC")
     patient_unique_id = models.ForeignKey(
         Patient, on_delete=models.CASCADE, verbose_name="Piece jointe"
+    )
+
+
+class Address(models.Model):
+    """this class is for the django orm, it gives the parameters for the
+    creation of the table of the same name in the psql database."""
+    street_number = models.IntegerField(verbose_name="numéro", blank=True)
+    street = models.CharField(max_length=200, verbose_name="nom de rue", blank=True)
+    zip_code = models.CharField(max_length=5, verbose_name="code postal", blank=True)
+    city = models.CharField(max_length=150, verbose_name="ville", blank=True)
+    additional = models.CharField(max_length=200, verbose_name="complément", blank=True)
+    patient_unique_id = models.ForeignKey(
+        Patient, on_delete=models.RESTRICT, verbose_name="patient", blank=True, null=True
     )

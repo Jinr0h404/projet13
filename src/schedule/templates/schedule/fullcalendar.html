@@ -66,5 +66,86 @@
                 </div>
             <div id='calendar'></div>
             </div>
+            <div class="text-center mt-4" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+                <button class="btn btn-primary btn-xl btn-outline-light" id="submitButton" data-bs-toggle="modal" data-bs-target="#portfolioModal1" type="submit">
+                    <i class="fas fa-upload me-2"></i>ajouter un rdv</button>
+            </div>
         </section>
+{% endblock %}
+{% block portfolioOpen %}
+<!-- Portfolio Modals-->
+        <!-- Portfolio Modal 1-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-12">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Nouveau rdv</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Contact Section Form-->
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-6">
+                                            <form id="createScheduleForm" method="post">
+                                                {% csrf_token %}
+                                                <!-- Last Name input-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Enter your lastname" />
+                                                    <label for="last_name">Nom</label>
+                                                </div>
+                                                <!-- date_start-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="appointment_date_start" name="appointment_date_start" type="datetime-local" placeholder="Enter appointment date" />
+                                                    <label for="appointment_date_start">début du rendez-vous</label>
+                                                </div>
+                                                <!-- Comment input-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <textarea class="form-control" id="comment" name="comment" type="text" placeholder="Commentaire..." style="height: 10rem" ></textarea>
+                                                    <label for="comment">Commentaire</label>
+                                                </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                                <!-- First Name input-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="first_name" name="first_name" type="text" placeholder="Enter your firstname" />
+                                                    <label for="first_name">Prénom</label>
+                                                </div>
+                                                <!-- date_stop-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="appointment_date_stop" name="appointment_date_stop" type="datetime-local" placeholder="Enter appointment date end" />
+                                                    <label for="appointment_date_stop">fin du rendez-vous</label>
+                                                </div>
+                                                <!-- Phone number input-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="phone" name="phone" type="tel" placeholder="phone number" />
+                                                    <label for="phone">Numéro de téléphone</label>
+                                                </div>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-12 col-xl-3">
+                                                <!-- Submit Button-->
+                                                <div class="form-actions">
+                                                    <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Créer</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 {% endblock %}

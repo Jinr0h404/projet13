@@ -46,5 +46,5 @@ class Address(models.Model):
     city = models.CharField(max_length=150, verbose_name="ville", blank=True)
     additional = models.CharField(max_length=200, verbose_name="complément", blank=True)
     patient_unique_id = models.ForeignKey(
-        Patient, on_delete=models.RESTRICT, verbose_name="patient", blank=True, null=True
+        Patient, on_delete=models.CASCADE, verbose_name="patient", blank=True, null=True
     )

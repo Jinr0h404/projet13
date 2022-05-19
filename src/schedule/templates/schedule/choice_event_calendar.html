@@ -1,0 +1,37 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% block content %}
+{% load static %}
+        <!-- Portfolio Section-->
+        <section class="page-section portfolio" id="planning">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Planning</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                        <div class="form-group div_form_search">
+                            <p>Afficher la fiche patients</p>
+                            <a href="{% url 'patient' patient_id %}" ><button class="btn btn-primary btn-xl" id="submitButton" type="submit" name={{patient_id}}>Afficher</button></a>
+                        </div>
+                </div>
+                <div class="col-lg-6">
+                    <form class="form_search" action="" method="get" accept-charset="utf-8">
+                        <div class="form-group div_form_search">
+                            <p>Supprimer le rendez-vous</p>
+                        </div>
+                        <!-- Submit Button-->
+                        <div class="form-actions">
+                            <button class="btn btn-primary btn-xl" id="submitButton" type="submit" name="query"><i class="fas fa-trash-alt me-2"></i>Supprimer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+{% endblock %}

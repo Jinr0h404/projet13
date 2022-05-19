@@ -69,6 +69,8 @@
             <div class="text-center mt-4" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
                 <button class="btn btn-primary btn-xl btn-outline-light" id="submitButton" data-bs-toggle="modal" data-bs-target="#portfolioModal1" type="submit">
                     <i class="fas fa-upload me-2"></i>ajouter un rdv</button>
+                <button class="btn btn-primary btn-xl btn-outline-light" id="submitButton" data-bs-toggle="modal" data-bs-target="#portfolioModal2" type="submit">
+                    <i class="fas fa-trash-alt me-2"></i>supprimer un rdv</button>
             </div>
         </section>
 {% endblock %}
@@ -101,15 +103,20 @@
                                                     <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Enter your lastname" />
                                                     <label for="last_name">Nom</label>
                                                 </div>
+                                                <!-- birthday-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="birth_date" name="birth_date" type="date" placeholder="Enter your birthday" />
+                                                    <label for="birth_date">Date de naissance</label>
+                                                </div>
                                                 <!-- date_start-->
                                                 <div class="form-floating mb-3 form-group">
                                                     <input class="form-control" id="appointment_date_start" name="appointment_date_start" type="datetime-local" placeholder="Enter appointment date" />
                                                     <label for="appointment_date_start">début du rendez-vous</label>
                                                 </div>
-                                                <!-- Comment input-->
+                                                <!-- reason input-->
                                                 <div class="form-floating mb-3 form-group">
-                                                    <textarea class="form-control" id="comment" name="comment" type="text" placeholder="Commentaire..." style="height: 10rem" ></textarea>
-                                                    <label for="comment">Commentaire</label>
+                                                    <textarea class="form-control" id="reason" name="reason" type="text" placeholder="motif..." style="height: 10rem" ></textarea>
+                                                    <label for="reason">Motif</label>
                                                 </div>
                                         </div>
 
@@ -119,15 +126,15 @@
                                                     <input class="form-control" id="first_name" name="first_name" type="text" placeholder="Enter your firstname" />
                                                     <label for="first_name">Prénom</label>
                                                 </div>
-                                                <!-- date_stop-->
-                                                <div class="form-floating mb-3 form-group">
-                                                    <input class="form-control" id="appointment_date_stop" name="appointment_date_stop" type="datetime-local" placeholder="Enter appointment date end" />
-                                                    <label for="appointment_date_stop">fin du rendez-vous</label>
-                                                </div>
                                                 <!-- Phone number input-->
                                                 <div class="form-floating mb-3 form-group">
                                                     <input class="form-control" id="phone" name="phone" type="tel" placeholder="phone number" />
                                                     <label for="phone">Numéro de téléphone</label>
+                                                </div>
+                                                <!-- date_stop-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="appointment_hour_stop" name="appointment_hour_stop" type="datetime-local" placeholder="Enter appointment date end" />
+                                                    <label for="appointment_hour_stop">fin du rendez-vous</label>
                                                 </div>
                                         </div>
                                         <div class="row justify-content-center">

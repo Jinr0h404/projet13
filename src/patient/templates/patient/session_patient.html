@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="row">
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0 text-center">patient</h1>
+                <h1 class="masthead-heading text-uppercase mb-0 text-center">Consulatation du {{ session.appointment_date }}</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -18,11 +18,11 @@
                 <!-- Masthead Subheading-->
                 <div class="row ">
                     <div class="col-lg-6">
-                        {% for patient in patient %}
-                        <a href="{% url 'patient' pk=patient.pk %}">
-                            <h3 class="lead text-white">{{ patient.last_name }} {{ patient.first_name }} né le {{ patient.birth_date }}</h3>
-                        </a>
-                        {% endfor %}
+                        <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Motif:</strong> {{ session.reason }}</p>
+                        <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>HDM:</strong> {{ session.disease_history }}</p>
+                        <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Test:</strong> {{ session.test }}</p>
+                        <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Traitement:</strong> {{ session.action_summary }}</p>
+                        <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Commentaire:</strong> {{ session.comment }}</p>
                     </div>
                 </div>
             </div>

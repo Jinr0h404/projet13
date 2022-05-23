@@ -1,5 +1,5 @@
 from django import forms
-from patient.models import Patient, Address
+from patient.models import Patient, Address, Attachment
 
 class CreatePatientForm(forms.ModelForm):
     class Meta:
@@ -28,4 +28,15 @@ class CreateAddressForm(forms.ModelForm):
             "zip_code",
             "city",
             "additional",
+        ]
+
+
+class UploadFileForm(forms.ModelForm):
+    class Meta:
+        model = Attachment
+        fields =[
+            "document_name",
+            "document_join",
+            "comment",
+            "patient_unique_id"
         ]

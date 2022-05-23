@@ -11518,3 +11518,8 @@ html {
 #planning {
     margin: 40px 10px;
 }
+
+.form_personalized {
+    color: #6c757d;
+    margin-top: 2rem
+}

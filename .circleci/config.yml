@@ -28,7 +28,7 @@ jobs:
           command: pip install -r requirements.txt
       - run:
           name: flake
-          commmand: flake8 ./ --max-line-length=119
+          command: flake8 ./ --max-line-length=119
       - run:
           name: test_execute
           command: python manage.py test

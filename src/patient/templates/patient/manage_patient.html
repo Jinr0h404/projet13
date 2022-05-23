@@ -3,47 +3,98 @@
 {% block content %}
 {% load static %}
 <!-- Masthead-->
-        <header class="masthead bg-primary text-white">
-            <div class="container">
-                <div class="row">
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0 text-center">patient</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                </div>
-                <!-- Masthead Subheading-->
-                <div class="row ">
-                    <div class="col-lg-6">
-                        <p class="masthead-subheading font-weight-light mb-0 text-left">Nom: {{ patient.last_name }}</p>
-                        <p class="masthead-subheading font-weight-light mb-0 text-left">Prénom: {{ patient.first_name }}</p>
-                        <p class="masthead-subheading font-weight-light mb-0 text-left">Né le: {{ patient.birth_date }}</p>
-                        <p class="masthead-subheading font-weight-light mb-0 text-left">N° de tel: {{ patient.phone }}</p>
-                        <p class="masthead-subheading font-weight-light mb-0 text-left">Mail: {{ patient.mail }}</p>
-                    </div>
-                    <div class="col-lg-6">
-                        <p class="masthead-subheading font-weight-light mb-0">Profession: {{ patient.job }}</p>
-                        <p class="masthead-subheading font-weight-light mb-0">Antécédant médicaux: {{ patient.pathology }}</p>
-                        <p class="masthead-subheading font-weight-light mb-0">Dispositif médical: {{ patient.medical_device }}</p>
-                        <p class="masthead-subheading font-weight-light mb-0">Lunette ou lentille: {{ patient.glasses }}</p>
-                        <p class="masthead-subheading font-weight-light mb-0">Traitement en cours: {{ patient.drug }}</p>
-                    </div>
+<header class="masthead bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0 text-center">patient</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+        </div>
+        <!-- Masthead Subheading-->
+        <div class="row ">
+            <div class="col-lg-6">
+                <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Nom:</strong> {{ patient.last_name }}</p>
+                <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Prénom:</strong> {{ patient.first_name }}</p>
+                <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Né le:</strong> {{ patient.birth_date }}</p>
+                <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>N° de tel:</strong> {{ patient.phone }}</p>
+                <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Mail:</strong> {{ patient.mail }}</p>
+            </div>
+            <div class="col-lg-6">
+                <p class="masthead-subheading font-weight-light mb-0"><strong>Profession:</strong> {{ patient.job }}</p>
+                <p class="masthead-subheading font-weight-light mb-0"><strong>Antécédant médicaux:</strong> {{ patient.pathology }}</p>
+                <p class="masthead-subheading font-weight-light mb-0"><strong>Dispositif médical:</strong> {{ patient.medical_device }}</p>
+                <p class="masthead-subheading font-weight-light mb-0"><strong>Lunette ou lentille:</strong> {{ patient.glasses }}</p>
+                <p class="masthead-subheading font-weight-light mb-0"><strong>Traitement en cours:</strong> {{ patient.drug }}</p>
+            </div>
+            <div class="row justify-content-end">
+                <div class="form-group div_form_search col-3">
+                    <a href="{% url 'update-patient' patient.id %}" ><button class="btn btn-primary btn-xl btn-outline-light" id="submitButton" type="submit" name={{patient.id}}>Modifier informations</button></a>
                 </div>
             </div>
-        </header>
+        </div>
+        <div class="row">
+            {% for adr in address %}
+            <h3 class="masthead-subheading font-weight-light mb-0">Adresse:</h3>
+            <p class="masthead-subheading font-weight-light mb-0">{{ adr.street_number }} {{ adr.street }}</p>
+            <p class="masthead-subheading font-weight-light mb-0">{{ adr.zip_code }} {{ adr.city }}</p>
+        </div>
+        <div class="row justify-content-end">
+            <div class="form-group div_form_search col-3">
+                <a href="{% url 'update-address' patient.id adr.id %}" ><button class="btn btn-primary btn-xl btn-outline-light" id="submitButton" type="submit" name={{adr.id}}>Modifier adresse</button></a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</header>
 <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Anciennes consultations</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
-                    <div class="divider-custom-line"></div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Consultations</h2>
+                        <!-- Icon Divider-->
+                        <div class="divider-custom">
+                            <div class="divider-custom-line"></div>
+                            <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                            <div class="divider-custom-line"></div>
+                        </div>
+                        <div>
+                        {% for session in session_list %}
+                            <a href="{% url 'session-patient' pk=session.pk %}" target="_blank">
+                                <h3 class="lead">consultation du {{ session.appointment_date }}</h3>
+                            </a>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    <!-- Portfolio Section Heading-->
+                    <div class="col-lg-6">
+                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Pièces jointes</h2>
+                        <!-- Icon Divider-->
+                        <div class="divider-custom">
+                            <div class="divider-custom-line"></div>
+                            <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                            <div class="divider-custom-line"></div>
+                        </div>
+                        <div>
+                        {% for file in file_list %}
+                            <a href="" target="_blank">
+                                <h3 class="lead">pièce jointe: {{ file.document_name }}</h3>
+                            </a>
+                        {% endfor %}
+                        </div>
+                        <!-- Submit Button-->
+                        <div class="row justify-content-end">
+                            <div class="form-actions col-6">
+                                <button class="btn btn-primary btn-xl" id="submitButton " data-bs-toggle="modal" data-bs-target="#portfolioModal2">Ajout pièce jointe</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -60,20 +111,104 @@
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Diplômée du CETOHM, Institut supérieur d'ostéopathie de Paris Est en 2017, j'aborde le soin par des techniques de manipulations douces. Je pense que le soleil et les papillons sont l'avenir de l'univers et qu'il faut préserver les fleurs.</p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">Je remets les coccyx façon Macron mais n'oubliez pas vos clichés pour être manipulé. Un ostéopathe ne répare pas les fractures, il aide à la bonne reprise des articulations  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus</p></div>
+                    <form action="{% url 'create_session-patient' pk=patient.id %}" id="editSessionForm" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="reason">Motif consultation</label>
+                            <textarea class="form-control" id="reason" name="reason" type="text" placeholder="texte"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="disease_history">Histoire de la maladie:</label>
+                            <textarea class="form-control" id="disease_history" name="disease_history" type="text" placeholder="texte"></textarea>
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label for="test">Tests</label>
+                        <textarea class="form-control" id="test" name="test" type="text" placeholder="texte tests" rows="10"></textarea>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="action_summary">Traitement</label>
+                        <textarea class="form-control" id="action_summary" name="action_summary" type="text" placeholder="texte traitement" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="comment">Commentaire</label>
+                        <textarea class="form-control" id="comment" name="comment" type="text" placeholder="texte commentaire" rows="5"></textarea>
+                    </div>
                 </div>
                 <!-- About Section Button-->
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
-                        <i class="fas fa-download me-2"></i>
+                        <button class="btn btn-xl btn-outline-light" id="submitButton" type="submit">
+                        <i class="fas fa-upload me-2"></i>
                         soumettre
-                    </a>
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
 {% endblock %}
-
+{% block portfolioOpen %}
+{% load static %}
+<!-- Portfolio Modals-->
+        <!-- join file Modal 2-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-12">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Ajouter une pièce jointe</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Contact Section Form-->
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-6">
+                                            <form id="UploadFileForm" method="post" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <!-- File Name input-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <input class="form-control" id="document_name" name="document_name" type="text" placeholder="Entrer un nom de fichier" />
+                                                    <label for="document_name">Nom du fichier</label>
+                                                </div>
+                                                <!-- File add-->
+                                                <div class="form-group mb-3 form-personalized text-left">
+                                                    <label for="document_join" class="form-personalized mb-3 text-left">Fichier: </label>
+                                                    <input type="file" class="form-control-file form_personalized mb-3" name="document_join" id="document_join">
+                                                </div>
+                                                <!-- File comment input-->
+                                                <div class="form-floating mb-3 form-group">
+                                                    <textarea class="form-control" id="comment" name="comment" type="text" placeholder="commentaire" style="height: 10rem" ></textarea>
+                                                    <label for="comment">Commentaire</label>
+                                                </div>
+                                                <!-- Submit success message-->
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-12 col-xl-3">
+                                                <!-- Submit Button-->
+                                                <div class="form-actions">
+                                                    <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Ajouter</button>
+                                                </div>
+                                            </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
 {% block script_content %}
-<script type="text/javascript">
+<script type="text/javascript"></script>
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView, UpdateView
+from django.views.generic import TemplateView, UpdateView, DeleteView
 from .models import Planning
 from datetime import datetime, timedelta
 import calendar
@@ -36,7 +37,7 @@ class ScheduleCalendarView(LoginRequiredMixin, View):
             event_sub_arr['start'] = start_date+'T'+hour_start
             event_sub_arr['end'] = end_date+'T'+hour_stop
             #event_sub_arr['url'] = "/gestionosteo/patient/managepatient-" + str(i.patient_unique_id_id)
-            event_sub_arr['url'] = "/gestionosteo/schedule/fullcalendar/choice" + "/" + str(i.patient_unique_id_id) + "/"
+            event_sub_arr['url'] = "/gestionosteo/schedule/fullcalendar/choice" + "/" + str(i.patient_unique_id_id) + "/" +str(i.id) + "/"
             event_arr.append(event_sub_arr)
         data = JsonResponse((event_arr), safe=False)
         datatest = json.dumps(event_arr)
@@ -82,10 +83,16 @@ class ScheduleEditView(LoginRequiredMixin, UpdateView):
     model = Planning
     template_name = "schedule/edit_fullcalendar.html"
     fields = ['reason', 'appointment_date_start', 'appointment_hour_stop']
+    success_url = reverse_lazy("fullcalendar")
+
+class ScheduleDeleteView(LoginRequiredMixin, DeleteView):
+    model = Planning
+    template_name = "schedule/delete_fullcalendar.html"
+    success_url = reverse_lazy("fullcalendar")
 
 
 class ScheduleChoiceView(LoginRequiredMixin, View):
     template_name = "schedule/choice_event_calendar.html"
-    def get(self, request, pk):
-        context = {"patient_id" : pk}
+    def get(self, request, pk, schedule):
+        context = {"patient_id" : pk, "event_id": schedule}
         return render(request, "schedule/choice_event_calendar.html", context)

@@ -1,5 +1,5 @@
 [flake8]
 per-file-ignores =
-	.\*\tests\test_urls.py:F401 F811
-exclude = .\*\migrations
+	./*/tests/test_urls.py:F401 F811
+exclude = ./*/migrations
 max-line-length = 119

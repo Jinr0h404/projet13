@@ -28,7 +28,7 @@ jobs:
           command: pip install -r requirements.txt
       - run:
           name: flake
-          command: flake8 ./
+          command: flake8
       - run:
           name: test_execute
           command: pytest

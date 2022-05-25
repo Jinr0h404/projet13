@@ -1,10 +1,11 @@
 from django import forms
 from patient.models import Patient, Address, Attachment
 
+
 class CreatePatientForm(forms.ModelForm):
     class Meta:
         model = Patient
-        fields =[
+        fields = [
             "mail",
             "last_name",
             "first_name",
@@ -22,7 +23,7 @@ class CreatePatientForm(forms.ModelForm):
 class CreateAddressForm(forms.ModelForm):
     class Meta:
         model = Address
-        fields =[
+        fields = [
             "street_number",
             "street",
             "zip_code",
@@ -34,7 +35,7 @@ class CreateAddressForm(forms.ModelForm):
 class UploadFileForm(forms.ModelForm):
     class Meta:
         model = Attachment
-        fields =[
+        fields = [
             "document_name",
             "document_join",
             "comment",

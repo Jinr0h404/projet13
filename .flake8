@@ -1,0 +1,3 @@
+[flake8]
+ignore=E501 .\accounting\migrations\* E501 .\patient\migrations\* E501 .\schedule\migrations\*
+max-line-length=119

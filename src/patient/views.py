@@ -1,14 +1,13 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, TemplateView, DetailView, ListView, UpdateView
-from home.forms import ContactForm
+from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from .forms import CreatePatientForm, CreateAddressForm, UploadFileForm
 from schedule.forms import CreateSessionForm
 from schedule.models import Session
 from .models import Patient, Address, Attachment
 from django.core.mail import send_mail
 from django.views import View
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse
 from django.db.models import Q
 
 
@@ -36,7 +35,7 @@ class PatientCreateView(View):
             patient_lastname = Q(last_name__contains=patient.last_name)
             patient_firstname = Q(first_name__contains=patient.first_name)
             patient_birth = Q(birth_date__contains=patient.birth_date)
-            q =  Patient.objects.filter(patient_lastname & patient_firstname & patient_birth)
+            q = Patient.objects.filter(patient_lastname & patient_firstname & patient_birth)
             if q:
                 return redirect(reverse("search") + '?query=' + patient.last_name)
             else:
@@ -70,7 +69,7 @@ class ManagePatientView(DetailView):
 
     def post(self, request, pk):
         form = UploadFileForm(request.POST, request.FILES)
-        form_session = CreateSessionForm(request.POST)
+        # form_session = CreateSessionForm(request.POST)
         if form.is_valid():
             document = form.save(commit=False)
             document.patient_unique_id = Patient.objects.get(pk=pk)
@@ -101,7 +100,7 @@ class SearchPatientView(ListView):
 class PatientUpdateView(LoginRequiredMixin, UpdateView):
     model = Patient
     template_name = "patient/edit_patient.html"
-    #fields = ['reason', 'appointment_date_start', 'appointment_hour_stop']
+    # fields = ['reason', 'appointment_date_start', 'appointment_hour_stop']
     form_class = CreatePatientForm
 
     def get_success_url(self):
@@ -112,7 +111,7 @@ class PatientUpdateView(LoginRequiredMixin, UpdateView):
 class AddressUpdateView(LoginRequiredMixin, UpdateView):
     model = Address
     template_name = "patient/edit_adress.html"
-    #fields = ['reason', 'appointment_date_start', 'appointment_hour_stop']
+    # fields = ['reason', 'appointment_date_start', 'appointment_hour_stop']
     form_class = CreateAddressForm
 
     def get_success_url(self):

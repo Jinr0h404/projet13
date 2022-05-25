@@ -1,4 +1,4 @@
-from django.utils import timezone
+# from django.utils import timezone
 from django.db import models
 from patient.models import Patient
 

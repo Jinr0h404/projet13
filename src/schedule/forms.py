@@ -5,11 +5,12 @@ from .models import Planning, Session
 class CreateScheduleForm(forms.ModelForm):
     class Meta:
         model = Planning
-        fields =[
+        fields = [
             "appointment_date_start",
             "appointment_hour_stop",
             "reason",
         ]
+
 
 class CreateInfoForm(forms.Form):
     last_name = forms.CharField(min_length=3, max_length=45, required=True)
@@ -20,7 +21,7 @@ class CreateInfoForm(forms.Form):
 class CreateSessionForm(forms.ModelForm):
     class Meta:
         model = Session
-        fields =[
+        fields = [
             "reason",
             "disease_history",
             "test",

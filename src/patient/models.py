@@ -12,7 +12,7 @@ class Patient(models.Model):
     mail = models.EmailField(max_length=300, blank=True)
     phone = models.CharField(max_length=20, verbose_name="Telephone", blank=False, null=False)
     job = models.CharField(max_length=150, verbose_name="Profession", blank=True, default="NC")
-    glasses = models.BooleanField(blank=True, default="NC")
+    glasses = models.BooleanField(blank=True, default=False)
     medical_device = models.TextField(blank=True, default="NC")
     drug = models.TextField(blank=True, default="NC")
     pathology = models.TextField(blank=True, default="NC")
@@ -20,6 +20,7 @@ class Patient(models.Model):
 
     def get_absolute_url(self):
         return reverse('patient', kwargs={'pk': self.pk})
+
 
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>

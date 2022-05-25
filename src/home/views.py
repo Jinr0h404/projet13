@@ -32,7 +32,7 @@ class LoginAdminView(View):
 
     def post(self, request):
         form = SigninForm(request.POST)
-        message=""
+        message = ""
         if form.is_valid():
             print(form.cleaned_data)
             user = authenticate(
@@ -48,7 +48,6 @@ class LoginAdminView(View):
                     return redirect(settings.LOGIN_REDIRECT_URL)
             else:
                 message = "Identifiants incorrects"
-            #return redirect(settings.LOGIN_REDIRECT_URL)
         return render(request, "home/signin.html", context={"message": message})
 
 

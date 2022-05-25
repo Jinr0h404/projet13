@@ -5,7 +5,6 @@ from .forms import CreatePatientForm, CreateAddressForm, UploadFileForm
 from schedule.forms import CreateSessionForm
 from schedule.models import Session
 from .models import Patient, Address, Attachment
-from django.core.mail import send_mail
 from django.views import View
 from django.urls import reverse
 from django.db.models import Q

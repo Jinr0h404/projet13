@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import PatientCreateView, ManagePatientView, SearchPatientView, PatientUpdateView, AddressUpdateView, SessionPatientView, SessionCreateView
+from .views import PatientCreateView, ManagePatientView, SearchPatientView, PatientUpdateView, AddressUpdateView,\
+    SessionPatientView, SessionCreateView
 
 
 urlpatterns = [

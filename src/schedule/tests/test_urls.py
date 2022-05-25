@@ -4,6 +4,7 @@ from schedule.models import Session
 from patient.models import Patient
 from apposteo.tests.test_models import patient_fixture
 
+
 @pytest.mark.django_db(reset_sequences=True)
 def test_session_infos_url(patient_fixture):
     pk = Patient.objects.get(pk=1)
@@ -11,7 +12,7 @@ def test_session_infos_url(patient_fixture):
                            disease_history="chute dans les escaliers en 2020",
                            test="abductions des membres post",
                            action_summary="étirement de l'antéro postérieur",
-                           patient_unique_id= pk)
+                           patient_unique_id=pk)
     path = reverse('session-patient', kwargs={'pk': 1})
 
     assert path == "/gestionosteo/patient/session-1/"

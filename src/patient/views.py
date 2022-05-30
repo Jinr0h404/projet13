@@ -11,24 +11,26 @@ from django.db.models import Q
 
 
 # Create your views here.
-class PatientCreateView(View):
+class PatientCreateView(LoginRequiredMixin, View):
+    """view that allows the creation of a patient, requires the connection of the admin account"""
     template_name = "patient/index_patient.html"
     model = Patient
     model_address = Address
     form_class = CreatePatientForm
 
     def get(self, request):
+        """the get method will display two forms, the patient and the address."""
         form = CreatePatientForm()
         form_address = CreateAddressForm()
         return render(request, "patient/index_patient.html", {'form': form, 'form_address': form_address})
 
     def post(self, request):
+        """the post method checks that the 2 forms are valid and if so,
+        checks if a patient with the same first name and date of birth already exists. If not,
+        the patient is created and the address is created after adding the new patient id."""
         form = CreatePatientForm(request.POST)
         form_address = CreateAddressForm(request.POST)
-        print(form)
         if form.is_valid() and form_address.is_valid():
-            print(form.cleaned_data)
-            print(form_address.cleaned_data)
             """use request.path to avoid form resending requests when refreshing the page"""
             patient = form.save(commit=False)
             patient_lastname = Q(last_name__contains=patient.last_name)
@@ -45,17 +47,19 @@ class PatientCreateView(View):
                 return redirect('patient', patient.pk)
 
 
-class ManagePatientView(DetailView):
+class ManagePatientView(LoginRequiredMixin, DetailView):
+    """the patient management view using a class base detailview to retrieve information from the patient table
+    and display it. It also allows the addition of attachments."""
     model = Patient
     context_object_name = "patient"
     template_name = "patient/manage_patient.html"
 
     def get_context_data(self, **kwargs):
+        """the get_context_data method is used to add information from the address table and to display
+        the new session form in the view template."""
         form = UploadFileForm()
         form_session = CreateSessionForm()
-        # Call the base implementation first to get a context
         context = super(ManagePatientView, self).get_context_data(**kwargs)
-        # Add in a QuerySet of all the address
         address_detail = Address.objects.filter(patient_unique_id=self.kwargs['pk'])
         session_list = Session.objects.filter(patient_unique_id=self.kwargs['pk'])
         file_list = Attachment.objects.filter(patient_unique_id=self.kwargs['pk'])
@@ -67,8 +71,9 @@ class ManagePatientView(DetailView):
         return context
 
     def post(self, request, pk):
+        """the post method retrieves the information from the add file form. If the form is valid,
+        the element is created, the corresponding patient ID is added and the element is saved in the database."""
         form = UploadFileForm(request.POST, request.FILES)
-        # form_session = CreateSessionForm(request.POST)
         if form.is_valid():
             document = form.save(commit=False)
             document.patient_unique_id = Patient.objects.get(pk=pk)
@@ -78,62 +83,91 @@ class ManagePatientView(DetailView):
             return redirect('patient', pk)
 
 
-class SearchPatientView(ListView):
+class SearchPatientView(LoginRequiredMixin, ListView):
+    """the SearchPatientView view uses a class base listView to display the list of patients matching the search."""
     template_name = "patient/search_patient.html"
     model = Patient
     context_object_name = "patient"
 
     def get_queryset(self):
+        """the get_queryset method retrieves the elements of the query. If there is an element then it searches in
+        the list of users for matches of last name and / or first names. If there is a match, it returns the list
+        of users found, otherwise the list of all users"""
         name = self.kwargs.get('query')
-        print(name)
         name = self.request.GET.get('query')
-        print(name)
         object_list = self.model.objects.all()
-        print(name)
         if name:
-            print(name)
             object_list = object_list.filter(Q(last_name__icontains=name) | Q(first_name__icontains=name))
         return object_list
 
 
 class PatientUpdateView(LoginRequiredMixin, UpdateView):
+    """the PatientUpdateView uses a view based on a class base updateView to update a patient's
+    information in the db"""
     model = Patient
     template_name = "patient/edit_patient.html"
-    # fields = ['reason', 'appointment_date_start', 'appointment_hour_stop']
     form_class = CreatePatientForm
 
     def get_success_url(self):
+        """the get_success_url method redirects the user to the patient management view after modification."""
         pk = self.kwargs["pk"]
         return reverse("patient", kwargs={"pk": pk})
 
 
 class AddressUpdateView(LoginRequiredMixin, UpdateView):
+    """the AddressUpdateView uses a view based on a class base updateView to update an address's
+        information in the db"""
     model = Address
     template_name = "patient/edit_adress.html"
-    # fields = ['reason', 'appointment_date_start', 'appointment_hour_stop']
     form_class = CreateAddressForm
 
     def get_success_url(self):
+        """the get_success_url method redirects the user to the patient management form after modification."""
         pk = self.kwargs["patient_pk"]
         return reverse("patient", kwargs={"pk": pk})
 
 
-class SessionPatientView(DetailView):
+class AddressCreateView(LoginRequiredMixin, CreateView):
+    """the AddressUpdateView uses a view based on a class base updateView to update an address's
+        information in the db"""
+    model = Address
+    template_name = "patient/edit_adress.html"
+    form_class = CreateAddressForm
+
+    def form_valid(self, form):
+        """the form_valid method retrieves the information from the form, checks the integrity on its own,
+        adds the patient's id to the address and saves the element via the super() method"""
+        pk = self.kwargs["patient_pk"]
+        form.instance.patient_unique_id = Patient.objects.get(pk=pk)
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        """the get_success_url method redirects the user to the patient management form after modification."""
+        pk = self.kwargs["patient_pk"]
+        return reverse("patient", kwargs={"pk": pk})
+
+
+class SessionPatientView(LoginRequiredMixin, DetailView):
+    """the SessionPatientView view uses a class base DetailView to view details of a patient's selected session."""
     model = Session
     context_object_name = "session"
     template_name = "patient/session_patient.html"
 
 
 class SessionCreateView(LoginRequiredMixin, CreateView):
+    """the SessionCreateView view uses a class base CreateView to create a new patient's session."""
     model = Session
-    template_name = "patient/edit_patient.html"
+    template_name = "patient/manage_patient.html"
     form_class = CreateSessionForm
 
     def form_valid(self, form):
+        """the form_valid method retrieves the information from the form, checks the integrity on its own,
+        adds the patient's id to the session and saves the element via the super() method"""
         pk = self.kwargs["pk"]
         form.instance.patient_unique_id = Patient.objects.get(pk=pk)
         return super().form_valid(form)
 
     def get_success_url(self):
+        """the get_success_url method redirects the user to the patient management view after modification."""
         pk = self.kwargs["pk"]
         return reverse("patient", kwargs={"pk": pk})

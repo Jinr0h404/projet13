@@ -38,16 +38,25 @@
             </div>
         </div>
         <div class="row">
-            {% for adr in address %}
-            <h3 class="masthead-subheading font-weight-light mb-0">Adresse:</h3>
-            <p class="masthead-subheading font-weight-light mb-0">{{ adr.street_number }} {{ adr.street }}</p>
-            <p class="masthead-subheading font-weight-light mb-0">{{ adr.zip_code }} {{ adr.city }}</p>
-        </div>
-        <div class="row justify-content-end">
-            <div class="form-group div_form_search col-3">
-                <a href="{% url 'update-address' patient.id adr.id %}" ><button class="btn btn-primary btn-xl btn-outline-light" id="submitButton" type="submit" name={{adr.id}}>Modifier adresse</button></a>
-            </div>
-            {% endfor %}
+            {% if address %}
+                {% for adr in address %}
+                    <h3 class="masthead-subheading font-weight-light mb-0">Adresse:</h3>
+                    <p class="masthead-subheading font-weight-light mb-0">{{ adr.street_number }} {{ adr.street }}</p>
+                    <p class="masthead-subheading font-weight-light mb-0">{{ adr.zip_code }} {{ adr.city }}</p>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="form-group div_form_search col-3">
+                        <a href="{% url 'update-address' patient.id adr.id %}" ><button class="btn btn-primary btn-xl btn-outline-light" id="submitButton" type="submit" name={{adr.id}}>Modifier adresse</button></a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                    <h3 class="masthead-subheading font-weight-light mb-0">Adresse:</h3>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="form-group div_form_search col-3">
+                        <a href="{% url 'create-address' patient.id %}" ><button class="btn btn-primary btn-xl btn-outline-light" id="submitButton" type="submit" name={{adr.id}}>Ajouter adresse</button></a>
+                    </div>
+            {% endif %}
         </div>
     </div>
 </header>
@@ -83,7 +92,7 @@
                         </div>
                         <div>
                         {% for file in file_list %}
-                            <a href="" target="_blank">
+                            <a href="/patientfile/user_yann_poudec_70/Devis_n2019_12_7738.pdf">
                                 <h3 class="lead">pièce jointe: {{ file.document_name }}</h3>
                             </a>
                         {% endfor %}

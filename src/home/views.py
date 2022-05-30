@@ -9,11 +9,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 class HomeView(View):
+    """user home view, allows you to send an email to ask a question"""
     def get(self, request):
         form = ContactForm(initial={'email': 'jojo@jojo.com'})
         return render(request, "home/index.html", {'form': form})
 
     def post(self, request):
+        """the post method retrieves the information from the form, if valid, it uses django's mail library to send
+        the visitor's message"""
         form = ContactForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data)
@@ -26,15 +29,18 @@ class HomeView(View):
 
 
 class LoginAdminView(View):
+    """view that handles admin login through a form"""
     def get(self, request):
+        """the get method returns the login page with the form"""
         form = SigninForm()
         return render(request, "home/signin.html", {'form': form})
 
     def post(self, request):
+        """the POST method retrieves information from the form. If there are and they are correct
+        then the user is connected. If there is a next in the url then the user is redirected"""
         form = SigninForm(request.POST)
         message = ""
         if form.is_valid():
-            print(form.cleaned_data)
             user = authenticate(
                 username=form.cleaned_data['login'], password=form.cleaned_data['password']
             )
@@ -59,5 +65,8 @@ class LogoutAdminView(View):
 
 
 class HomeAdminView(LoginRequiredMixin, View):
+    """admin homepage view uses the loginRequired mixin to verify that the user is authenticated
+    before displaying the page. the view redirects to the planning page which is the central page for the
+    practitioner"""
     def get(self, request):
-        return render(request, "home/index_admin.html")
+        return redirect("fullcalendar")

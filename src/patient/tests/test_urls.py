@@ -1,11 +1,17 @@
 import pytest
 from django.urls import reverse, resolve
-from apposteo.tests.test_models import patient_fixture
 
 
-@pytest.mark.django_db
-def test_patient_infos_url(patient_fixture):
-    path = reverse('patient', kwargs={'pk': 1})
+@pytest.mark.django_db(reset_sequences=True)
+class TestPatientUrlClass:
+    def test_patient_infos_url(self):
+        path = reverse('patient', kwargs={'pk': 71})
 
-    assert path == "/gestionosteo/patient/managepatient-1/"
-    assert resolve(path).view_name == "patient"
+        assert path == "/gestionosteo/patient/managepatient-71/"
+        assert resolve(path).view_name == "patient"
+
+    def test_session_infos_url(self):
+        path = reverse('session-patient', kwargs={'pk': 1})
+
+        assert path == "/gestionosteo/patient/session-1/"
+        assert resolve(path).view_name == "session-patient"

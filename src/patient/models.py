@@ -23,7 +23,9 @@ class Patient(models.Model):
 
 
 def user_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    """This function allows you to define the path for saving attachments.
+    It is called by the attachment table with the upload_to attribute.
+    file will be uploaded to MEDIA_ROOT/user_<id>/<filename>"""
     patient_name = instance.patient_unique_id
     return 'patientfile/user_{0}_{1}_{2}/{3}'.format(
         patient_name.last_name,

@@ -1,19 +1,41 @@
 import pytest
 from django.urls import reverse, resolve
-from schedule.models import Session
+from schedule.models import Session, Planning
 from patient.models import Patient
-from apposteo.tests.test_models import patient_fixture
+from apposteo.tests.fixture_db_models import patient_fixture
 
 
-@pytest.mark.django_db(reset_sequences=True)
-def test_session_infos_url(patient_fixture):
-    pk = Patient.objects.get(pk=1)
-    Session.objects.create(reason="Mal de dos",
-                           disease_history="chute dans les escaliers en 2020",
-                           test="abductions des membres post",
-                           action_summary="étirement de l'antéro postérieur",
-                           patient_unique_id=pk)
-    path = reverse('session-patient', kwargs={'pk': 1})
+@pytest.mark.django_db()
+def test_edit_calendar_url(patient_fixture):
+    # pk = Patient.objects.get(pk=1)
+    path = reverse('edit-fullcalendar', kwargs={'pk': 1})
 
-    assert path == "/gestionosteo/patient/session-1/"
-    assert resolve(path).view_name == "session-patient"
+    assert path == "/gestionosteo/schedule/fullcalendar/edit-1/"
+    assert resolve(path).view_name == "edit-fullcalendar"
+
+
+@pytest.mark.django_db
+class TestScheduleUrlClass:
+    def test_edit_calendar_url(self):
+        path = reverse('edit-fullcalendar', kwargs={'pk': 1})
+
+        assert path == "/gestionosteo/schedule/fullcalendar/edit-1/"
+        assert resolve(path).view_name == "edit-fullcalendar"
+
+    def test_delete_calendar_url(self):
+        path = reverse('delete-fullcalendar', kwargs={'pk': 1})
+
+        assert path == "/gestionosteo/schedule/fullcalendar/delete-1/"
+        assert resolve(path).view_name == "delete-fullcalendar"
+
+    def test_choice_calendar_url(self):
+        path = reverse('choice-fullcalendar', kwargs={'pk': 1, 'schedule': 1})
+
+        assert path == "/gestionosteo/schedule/fullcalendar/choice/1/1/"
+        assert resolve(path).view_name == "choice-fullcalendar"
+
+    def test_calendar_url(self):
+        path = reverse('fullcalendar')
+
+        assert path == "/gestionosteo/schedule/fullcalendar/"
+        assert resolve(path).view_name == "fullcalendar"

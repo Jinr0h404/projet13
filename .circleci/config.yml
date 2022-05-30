@@ -20,14 +20,11 @@ jobs:
 
   test_osteoapp:
     environment:
-      DJANGO_SETTINGS_MODULE: apposteo.settings
+      DJANGO_SETTINGS_MODULE: apposteo.settings.test
     docker:
       - image: cimg/python:3.9.0
     steps:
       - checkout
-      - run:
-          name: pipenv
-          command: pipenv shell
       - run:
           name: requirements
           command: pip install -r requirements.txt

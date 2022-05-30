@@ -26,6 +26,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: pipenv
+          command: pipenv shell
+      - run:
           name: requirements
           command: pip install -r requirements.txt
       - run:

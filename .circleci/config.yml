@@ -19,6 +19,8 @@ jobs:
           command: "echo Hello, World!"
 
   test_osteoapp:
+    environment:
+      DJANGO_SETTINGS_MODULE: apposteo.settings
     docker:
       - image: cimg/python:3.9.0
     steps:

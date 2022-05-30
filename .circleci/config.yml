@@ -31,7 +31,7 @@ jobs:
           command: flake8
       - run:
           name: test_execute
-          command: python -m pytest
+          command: pytest
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows

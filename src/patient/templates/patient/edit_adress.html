@@ -3,7 +3,7 @@
 {% block content %}
 {% load static %}
         <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="planning">
+        <section class="masthead page-section portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Info Adresse</h2>
@@ -13,13 +13,46 @@
                     <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                <form method="POST">
+                        {% csrf_token %}
+                        <!-- Last Name input-->
+                        <div class="form-group">
+                            <label for="street_number">Numéro</label>
+                            <input class="form-control" id="street_number" name="street_number" type="text" value="{{address.street_number}}"/>
+                        </div>
+                        <!-- First Name input-->
+                        <div class="form-group">
+                            <label for="street">Rue</label>
+                            <input class="form-control" id="street" name="street" type="text" value="{{address.street}}" />
+                        </div>
+                        <!-- Email address input-->
+                        <div class="form-group">
+                            <label for="zip_code">Code postale</label>
+                            <input class="form-control" id="zip_code" name="zip_code" type="text" value="{{address.zip_code}}"/>
+                        </div>
+                        <!-- birthday-->
+                        <div class="form-group">
+                            <label for="city">Ville</label>
+                            <input class="form-control" id="city" name="city" type="text" value="{{address.city}}" />
+                        </div>
+                        <!-- Medical device input-->
+                        <div class="form-group">
+                            <label for="additional">Complément</label>
+                            <input class="form-control" id="additional" name="additional" type="text" value="{{address.additional}}" />
+                        </div>
+                        <!-- Submit success message-->
+                </div>
+                </div>
+                <!-- About Section Button-->
+                <div class="text-center mt-4">
+                        <button class="btn btn-xl" id="submitButton" type="submit">
+                        <i class="fas fa-upload me-2"></i>
+                        modifier
+                        </button>
+                    </form>
             </div>
-            <div>
-                <form id="editScheduleForm" method="POST">
-                    {% csrf_token%}
-                    {{ form.as_p }}
-                    <input type="submit" value="Modifier" />
-                </form>
             </div>
         </section>
 {% endblock %}

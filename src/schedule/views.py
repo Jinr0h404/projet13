@@ -42,7 +42,6 @@ class ScheduleCalendarView(LoginRequiredMixin, View):
             hour_stop = datetime.strptime(
                 str(i.appointment_hour_stop.time()), "%H:%M:%S"
             ).strftime("%H:%M:%S")
-            print(hour_start)
             end_date = datetime.strptime(
                 str(i.appointment_hour_stop.date()), "%Y-%m-%d"
             ).strftime("%Y-%m-%d")
@@ -92,10 +91,9 @@ class ScheduleCalendarView(LoginRequiredMixin, View):
                 )
                 schedule.patient_unique_id = q[0]
             schedule.reason = (
-                schedule.reason + " " + schedule_info.last_name + " " + schedule_info.first_name +
-                " " + str(schedule_info.birth_date) +
-                " " +
-                schedule_info.phone
+                schedule.reason + " " + "|" + " " + schedule_info.last_name + " " +
+                schedule_info.first_name + " " + "|" + " " + str(schedule_info.birth_date) +
+                " " + "|" + " " + schedule_info.phone
             )
             schedule.save()
             return redirect(request.path)

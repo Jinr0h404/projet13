@@ -8,15 +8,15 @@ class Patient(models.Model):
     creation of the table of the same name in the psql database."""
     last_name = models.CharField(max_length=80, verbose_name="Nom", blank=False, null=False)
     first_name = models.CharField(max_length=80, verbose_name="Prenom", blank=False, null=False)
-    birth_date = models.DateField(blank=False, null=False)
-    mail = models.EmailField(max_length=300, blank=True)
+    birth_date = models.DateField(blank=False, verbose_name="Date de naissance", null=False)
+    mail = models.EmailField(max_length=300, verbose_name="Adresse email", blank=True)
     phone = models.CharField(max_length=20, verbose_name="Telephone", blank=False, null=False)
     job = models.CharField(max_length=150, verbose_name="Profession", blank=True, default="NC")
-    glasses = models.BooleanField(blank=True, default=False)
-    medical_device = models.TextField(blank=True, default="NC")
-    drug = models.TextField(blank=True, default="NC")
-    pathology = models.TextField(blank=True, default="NC")
-    comment = models.TextField(blank=True, default="NC")
+    glasses = models.BooleanField(blank=True, verbose_name="Dispositif correctif de vision", default=False)
+    medical_device = models.TextField(blank=True, verbose_name="Dispositif médical", default="NC")
+    drug = models.TextField(blank=True, verbose_name="Traitement en cours", default="NC")
+    pathology = models.TextField(blank=True, verbose_name="Pathologie", default="NC")
+    comment = models.TextField(blank=True, verbose_name="Commentaire", default="NC")
 
     def get_absolute_url(self):
         return reverse('patient', kwargs={'pk': self.pk})

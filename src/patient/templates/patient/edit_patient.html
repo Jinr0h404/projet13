@@ -2,24 +2,100 @@
 {% load static %}
 {% block content %}
 {% load static %}
-        <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="planning">
+
+        <section class="masthead page-section bg-primary text-white mb-0" id="about">
             <div class="container">
-                <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Info Patient</h2>
+                <!-- About Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">Modifier fiche patient</h2>
                 <!-- Icon Divider-->
-                <div class="divider-custom">
+                <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-            </div>
-            <div>
-                <form id="editScheduleForm" method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" value="Modifier" />
-                </form>
+                <!-- About Section Content-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <!-- Last Name input-->
+
+                        <div class="form-group">
+                            <label for="last_name">Nom</label>
+                            <input class="form-control" id="last_name" name="last_name" type="text" value="{{patient.last_name}}"/>
+                        </div>
+                        <!-- First Name input-->
+                        <div class="form-group">
+                            <label for="first_name">Prénom</label>
+                            <input class="form-control" id="first_name" name="first_name" type="text" value="{{patient.first_name}}" />
+                        </div>
+                        <!-- Email address input-->
+                        <div class="form-group">
+                            <label for="mail">Email</label>
+                            <input class="form-control" id="mail" name="mail" type="email" value="{{patient.mail}}"/>
+                        </div>
+                        <!-- birthday-->
+                        <div class="form-group">
+                            <label for="birth_date">Date de naissance</label>
+                            <input class="form-control" id="birth_date" name="birth_date" type="date" value="{{patient.birth_date | date:'Y-m-d'}}" />
+                        </div>
+                        <!-- Phone number input-->
+                        <div class="form-group">
+                            <label for="phone">Numéro de téléphone</label>
+                            <input class="form-control" id="phone" name="phone" type="tel" value="{{patient.phone}}"/>
+                            <div class="invalid-feedback">Valeur incorrecte</div>
+                        </div>
+                        <!-- Medical device input-->
+                        <div class="form-group">
+                            <label for="medical_device">Dispositif médicale</label>
+                            <textarea class="form-control" id="medical_device" name="medical_device" type="text" style="height: 10rem" >{{patient.medical_device}}</textarea>
+                        </div>
+                        <!-- Submit success message-->
+                </div>
+                <div class="col-lg-6">
+                    <!-- Job-->
+                    <div class="form-group">
+                        <label for="job">Profession</label>
+                        <input class="form-control" id="job" name="job" type="text" value="{{patient.job}}" />
+                    </div>
+                    <!-- drug input-->
+                    <div class="form-group">
+                        <label for="drug">Traitement en cours</label>
+                        <input class="form-control" id="drug" name="drug" type="text" value="{{patient.drug}}" />
+                    </div>
+                    <!-- Pathology input-->
+                    <div class="form-group">
+                        <label for="pathology">Antécédants médicaux chirurgicaux</label>
+                        <textarea class="form-control" id="pathology" name="pathology" type="text" style="height: 10rem" >{{patient.pathology}}</textarea>
+                    </div>
+                    <!-- Comment input-->
+                    <div class="form-group">
+                        <label for="comment">Commentaire</label>
+                        <textarea class="form-control" id="comment" name="comment" type="text" style="height: 10rem" >{{patient.comment}}</textarea>
+                    </div>
+                </div>
+                </div>
+                <!-- Glasses input-->
+                <div class="row justify-content-start">
+                    <div class="form-group">
+                        <div class="form-check col-4 text-left ">
+                            <label class="form-check-label text-left" for="glasses">Dispositif correctif de vision</label>
+                            {% if patient.glasses %}
+                            <input class="form-check-input" type="checkbox" name="glasses" id="glasses" checked="checked" >
+                            {% else %}
+                            <input class="form-check-input" type="checkbox" name="glasses" id="glasses">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <!-- About Section Button-->
+                <div class="text-center mt-4">
+                        <button class="btn btn-xl btn-outline-light" id="submitButton" type="submit">
+                        <i class="fas fa-upload me-2"></i>
+                        modifier
+                        </button>
+                    </form>
+                </div>
             </div>
         </section>
 {% endblock %}

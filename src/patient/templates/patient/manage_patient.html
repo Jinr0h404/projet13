@@ -43,6 +43,9 @@
                     <h3 class="masthead-subheading font-weight-light mb-0">Adresse:</h3>
                     <p class="masthead-subheading font-weight-light mb-0">{{ adr.street_number }} {{ adr.street }}</p>
                     <p class="masthead-subheading font-weight-light mb-0">{{ adr.zip_code }} {{ adr.city }}</p>
+                    {% if adr.additional %}
+                    <p class="masthead-subheading font-weight-light mb-0">Complément: {{ adr.additional }}</p>
+                    {% endif %}
                 </div>
                 <div class="row justify-content-end">
                     <div class="form-group div_form_search col-3">

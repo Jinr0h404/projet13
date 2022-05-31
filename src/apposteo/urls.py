@@ -22,7 +22,7 @@ from home.views import HomeView, LoginAdminView, HomeAdminView, LogoutAdminView
 urlpatterns = [
     path('gestionbdd/', admin.site.urls),
     path('', HomeView.as_view(), name="home-index"),
-    path('home', include("home.urls")),
+    path('home/', include("home.urls")),
     path('gestionosteo/', LoginAdminView.as_view(), name="home-signin"),
     path('gestionosteo/logout/', LogoutAdminView.as_view(), name="home-signout"),
     path('gestionosteo/admin/', HomeAdminView.as_view(), name="admin-index"),

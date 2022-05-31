@@ -16,12 +16,18 @@
                 </div>
                 </div>
                 <!-- Masthead Subheading-->
-                <div class="row ">
+                <div class="row">
                     <div class="col-lg-6">
                         <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Motif:</strong> {{ session.reason }}</p>
                         <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>HDM:</strong> {{ session.disease_history }}</p>
-                        <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Test:</strong> {{ session.test }}</p>
-                        <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Traitement:</strong> {{ session.action_summary }}</p>
+                        <div class="row ">
+                            <div class="col-lg-6">
+                                <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Test:</strong> {{ session.test }}</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Traitement:</strong> {{ session.action_summary }}</p>
+                            </div>
+                        </div>
                         <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Commentaire:</strong> {{ session.comment }}</p>
                     </div>
                 </div>

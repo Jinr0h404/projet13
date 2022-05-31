@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.views.generic import TemplateView
+
 from .forms import ContactForm, SigninForm
 from django.core.mail import send_mail
 from django.views import View
@@ -21,7 +23,8 @@ class HomeView(View):
         if form.is_valid():
             print(form.cleaned_data)
             from_email = form.cleaned_data['email']
-            message = form.cleaned_data['message']
+            phone = form.cleaned_data['phone']
+            message = "expéditeur " + from_email + " tel: "+ phone + " Demande: "+ form.cleaned_data['message']
             subject = 'Renseignement AppOsteo'
             send_mail(subject, message, from_email, ['noritakasawamura84@gmail.com'])
             """use request.path to avoid form resending requests when refreshing the page"""
@@ -70,3 +73,8 @@ class HomeAdminView(LoginRequiredMixin, View):
     practitioner"""
     def get(self, request):
         return redirect("fullcalendar")
+
+
+class LegalView(TemplateView):
+    """the LegalView uses a class based view TemplateView for displaying the legal notice template"""
+    template_name = "home/legal_notice.html"

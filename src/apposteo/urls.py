@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
 from home.views import HomeView, LoginAdminView, HomeAdminView, LogoutAdminView
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('gestionbdd/', admin.site.urls),
@@ -29,3 +30,4 @@ urlpatterns = [
     path('gestionosteo/patient/', include("patient.urls")),
     path('gestionosteo/schedule/', include("schedule.urls")),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

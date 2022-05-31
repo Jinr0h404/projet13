@@ -2,7 +2,6 @@ from django.urls import path
 from .views import PatientCreateView, ManagePatientView, SearchPatientView, PatientUpdateView, AddressUpdateView,\
     SessionPatientView, SessionCreateView, AddressCreateView
 
-
 urlpatterns = [
     path('', PatientCreateView.as_view(), name="create-patient-index"),
     path('managepatient-<int:pk>/', ManagePatientView.as_view(), name="patient"),

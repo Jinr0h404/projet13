@@ -24,7 +24,9 @@ class HomeView(View):
             print(form.cleaned_data)
             from_email = form.cleaned_data['email']
             phone = form.cleaned_data['phone']
-            message = "expéditeur " + from_email + " tel: "+ phone + " Demande: "+ form.cleaned_data['message']
+            from_name = form.cleaned_data['name']
+            message = "expéditeur " + from_name + " mail: " + from_email + " tel: " + phone +\
+                      " Demande: " + form.cleaned_data['message']
             subject = 'Renseignement AppOsteo'
             send_mail(subject, message, from_email, ['noritakasawamura84@gmail.com'])
             """use request.path to avoid form resending requests when refreshing the page"""

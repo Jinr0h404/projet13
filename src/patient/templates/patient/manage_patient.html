@@ -95,7 +95,7 @@
                         </div>
                         <div>
                         {% for file in file_list %}
-                            <a href="/patientfile/user_yann_poudec_70/Devis_n2019_12_7738.pdf">
+                            <a href="{{file.document_join.url}}" download>
                                 <h3 class="lead">pièce jointe: {{ file.document_name }}</h3>
                             </a>
                         {% endfor %}

@@ -3,384 +3,486 @@
 {% block content %}
 {% load static %}
 <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="{% static 'assets/img/avataaars.svg' %}" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">VOTRE OSTEOPATHE</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Tout savoir sur l'activité du cabinet</p>
-            </div>
-        </header>
-        <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
-            <div class="container">
-                <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Grid Items-->
-                <div class="row justify-content-center">
-                    <!-- Portfolio Item 1-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><h2>HORRAIRES</h2></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="..." />
-                        </div>
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar mb-5" src="{% static 'assets/img/avataaars.svg' %}" alt="..."/>
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">VOTRE OSTEOPATHE</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">Tout savoir sur l'activité du cabinet</p>
+    </div>
+</header>
+<!-- Portfolio Section-->
+<section class="page-section portfolio" id="portfolio">
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Portfolio Grid Items-->
+        <div class="row justify-content-center">
+            <!-- Portfolio Item 1-->
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><h2>HORRAIRES</h2></div>
                     </div>
-                    <!-- Portfolio Item 2-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><h2>Ostéopathie : Concept et Histoire</h2></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/cake.png' %}" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 3-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><h2>Ostéopathie pour qui ? Pourquoi ?</h2></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/circus.png' %}" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><h2>Douleur ? premiers reflexes</h2></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/game.png' %}" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/safe.png' %}" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 6-->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/submarine.png' %}" alt="..." />
-                        </div>
-                    </div>
+                    <img class="img-fluid" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="..."/>
                 </div>
             </div>
-        </section>
-        <!-- About Section-->
-        <section class="page-section bg-primary text-white mb-0" id="about">
-            <div class="container">
-                <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">à Propos</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- About Section Content-->
-                <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Diplômée du CETOHM, Institut supérieur d'ostéopathie de Paris Est en 2017, j'aborde le soin par des techniques de manipulations douces. Je pense que le soleil et les papillons sont l'avenir de l'univers et qu'il faut préserver les fleurs.</p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">Je remets les coccyx façon Macron mais n'oubliez pas vos clichés pour être manipulé. Un ostéopathe ne répare pas les fractures, il aide à la bonne reprise des articulations  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus</p></div>
-                </div>
-                <!-- About Section Button-->
-                <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
-                        <i class="fas fa-download me-2"></i>
-                        Free Download!
-                    </a>
-                </div>
-            </div>
-        </section>
-        <!-- Contact Section-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Me contacter</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Contact Section Form-->
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-xl-7">
-                        <form id="contactForm" method="post">
-                            {% csrf_token %}
-                            <!-- Name input-->
-                            <div class="form-floating mb-3 form-group">
-                                <input class="form-control" id="name" name="name" type="text" placeholder="Entrer votre nom" />
-                                <label for="name">Nom complet</label>
-                            </div>
-                            <!-- Email address input-->
-                            <div class="form-floating mb-3 form-group">
-                                <input class="form-control" id="email" name="email" type="email" placeholder="nom@exemple.com" />
-                                <label for="email">Adresse e-mail</label>
-                            </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3 form-group">
-                                <input class="form-control" id="phone" name="phone" type="tel" placeholder="0102030405" />
-                                <label for="phone">Numéro de téléphone</label>
-                            </div>
-                            <!-- Message input-->
-                            <div class="form-floating mb-3 form-group">
-                                <textarea class="form-control" id="message" name="message" type="text" placeholder="Posez votre question ici" style="height: 10rem" ></textarea>
-                                <label for="message">Message</label>
-                            </div>
-                            <!-- Submit Button-->
-                            <div class="form-actions">
-                                <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Envoyer</button>
-                            </div>
-                        </form>
+            <!-- Portfolio Item 2-->
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><h2>Ostéopathie : Concept et
+                            Histoire</h2></div>
                     </div>
+                    <img class="img-fluid" src="{% static 'assets/img/portfolio/cake.png' %}" alt="..."/>
                 </div>
             </div>
-        </section>
+            <!-- Portfolio Item 3-->
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><h2>Ostéopathie pour qui ?
+                            Pourquoi ?</h2></div>
+                    </div>
+                    <img class="img-fluid" src="{% static 'assets/img/portfolio/circus.png' %}" alt="..."/>
+                </div>
+            </div>
+            <!-- Portfolio Item 4-->
+            <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><h2>Douleur ? premiers
+                            reflexes</h2></div>
+                    </div>
+                    <img class="img-fluid" src="{% static 'assets/img/portfolio/game.png' %}" alt="..."/>
+                </div>
+            </div>
+            <!-- Portfolio Item 5-->
+            <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i
+                                class="fas fa-plus fa-3x"></i></div>
+                    </div>
+                    <img class="img-fluid" src="{% static 'assets/img/portfolio/safe.png' %}" alt="..."/>
+                </div>
+            </div>
+            <!-- Portfolio Item 6-->
+            <div class="col-md-6 col-lg-4">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i
+                                class="fas fa-plus fa-3x"></i></div>
+                    </div>
+                    <img class="img-fluid" src="{% static 'assets/img/portfolio/submarine.png' %}" alt="..."/>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Section-->
+<section class="page-section bg-primary text-white mb-0" id="about">
+    <div class="container">
+        <!-- About Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-white">à Propos</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-lg-4 ms-auto">
+                <p class="lead">Diplômée du CETOHM, Institut supérieur d'ostéopathie de Paris
+                Est en 2017, j'aborde le soin par des techniques de manipulations douces. Je pense que le soleil et les
+                papillons sont l'avenir de l'univers et qu'il faut préserver les fleurs.</p>
+            </div>
+            <div class="col-lg-4 me-auto">
+                <p class="lead">Je remets les coccyx façon Macron mais n'oubliez pas vos
+                clichés pour être manipulé. Un ostéopathe ne répare pas les fractures, il aide à la bonne reprise des
+                articulations Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section-->
+<section class="page-section" id="contact">
+    <div class="container">
+        <!-- Contact Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Me contacter</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Contact Section Form-->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+                <form id="contactForm" method="post">
+                    {% csrf_token %}
+                    <!-- Name input-->
+                    <div class="form-floating mb-3 form-group">
+                        <input class="form-control" id="name" name="name" type="text" placeholder="Entrer votre nom"/>
+                        <label for="name">Nom complet</label>
+                    </div>
+                    <!-- Email address input-->
+                    <div class="form-floating mb-3 form-group">
+                        <input class="form-control" id="email" name="email" type="email" placeholder="nom@exemple.com"/>
+                        <label for="email">Adresse e-mail</label>
+                    </div>
+                    <!-- Phone number input-->
+                    <div class="form-floating mb-3 form-group">
+                        <input class="form-control" id="phone" name="phone" type="tel" placeholder="0102030405"/>
+                        <label for="phone">Numéro de téléphone</label>
+                    </div>
+                    <!-- Message input-->
+                    <div class="form-floating mb-3 form-group">
+                        <textarea class="form-control" id="message" name="message" type="text"
+                                  placeholder="Posez votre question ici" style="height: 10rem"></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <!-- Submit Button-->
+                    <div class="form-actions">
+                        <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
 {% block portfolioOpen %}
 <!-- Portfolio Modals-->
-        <!-- Portfolio Modal 1-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">horraires</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Consultation sur rendez-vous uniquement, du <strong>lundi au vendredi de 9h à 18h</strong>. </p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
+<!-- Portfolio Modal 1-->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title-->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">horraires</h2>
+                            <!-- Icon Divider-->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                                <div class="divider-custom-line"></div>
                             </div>
+                            <!-- Portfolio Modal - Image-->
+                            <img class="img-fluid rounded mb-5" src="{% static 'assets/img/portfolio/cabin.png' %}"
+                                 alt="..."/>
+                            <!-- Portfolio Modal - Text-->
+                            <p class="mb-4">Consultation sur rendez-vous uniquement, du <strong>lundi au vendredi de 9h
+                                à 18h</strong>. </p>
+                            <button class="btn btn-primary" data-bs-dismiss="modal">
+                                <i class="fas fa-xmark fa-fw"></i>
+                                Close Window
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 2-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Ostéopathie : Concept et Histoire</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Text-->
-                                    <h3>Definition de l'Organisation Mondiale de la santé :</h3>
-                                    <p class="mb-4">•L’ostéopathie repose sur l’utilisation du contact manuel pour le diagnostic et le traitement. Elle prend en compte les relations entre le corps, l’esprit, la raison, la santé et la maladie. Elle place l’accent sur l’intégrité structurelle et fonctionnelle du corps et la tendance intrinsèque de l’organisme à s’auto-guérir.</p>
-                                    <p class="mb-4">•Les ostéopathes utilisent une grande variété de techniques thérapeutiques manuelles pour améliorer les fonctions physiologiques et/ou soutenir l’homéostasie altérées par des dysfonctions somatiques (les structures du corps), c’est à dire une altération ou une dégradation de la fonction des composantes concernées du système somatique : les structures squelettiques, articulaires, et myofasciales, ainsi que les éléments vasculaires, lymphatiques et neurologiques corrélés.</p>
-                                    <p class="mb-4">•Les ostéopathes utilisent leur connaissance des relations entre la structure et la fonction pour optimiser les capacités du corps à s’auto-réguler et à s’auto-guérir. Cette approche holistique de la prise en charge du patient est fondée sur le concept que l’être humain constitue une unité fonctionnelle dynamique, dans laquelle toutes les parties sont reliées entre elles. »</p>
-                                    <h3>D'où vient l'Ostéopathie ?</h3>
-                                    <p class="mb-4">•En 1874, Andrew Taylor Still (médecin américain et fondateur du concept thérapeutique de l'ostéopathie) va énoncer les trois grands principes de l'ostéopathie :</p>
-                                    <p class="mb-4">•"Le corps est une unité, un tout" : L'unité fonctionnelle du corps.</p>
-                                    <p class="mb-4">•"La structure gouverne la fonction et la fonction influence la structure" : Les structures agissent sur les organes et les fonctions agissent sur les structures, à proximité ou à l'autre bout du corps. Tout dépend de l'individu et des circonstances. Les choses peuvent se dégrader par ricochet, via les voies de communication que sont le sang et les nerfs. Le sang et le système lymphatique distribuent la nourriture et ramassent les "poubelles" sous le contrôle du système nerveux. S'il y a embouteillage où déviation, dus à une lésion structurelles quelconque, la circulation est entravée, la nourriture mal distribuée, les déchets mal collectés et le trouble s'installe. Selon A T Still "il suffit de rétablir la libre circulation en levant barrages et rétrécissements. Il n'y a plus qu'à compter sur les capacités du corps à guérir lui-même les tissus ;</p>
-                                    <p class="mb-4">•"Le corps possède un pouvoir d'autorégulation et d'auto-guérison" : Le principe de l'homéostasie. Ceci implique qu'un dérangement même minime de la structure va entrainer des troubles fonctionnels. Lorsque nous levons le dérangement, le corps se charge lui-même de retrouver la santé. L'ostéopathe agit sur différents systèmes dans le but de redonner de la mobilité à l'ensemble du corps et de maintenir l'état de santé : système ostéo-articulaire, système viscéral, système crânien.</p>
-                                    <h3>Différentes Techniques dans la boite à outils de l'Ostéopathe :</h3>
-                                    <p class="mb-4">L'ostéopathe va rechercher l'amélioration des capacités d'autorégulation, d'autocorrection en rétablissant une mobilité / motilité. Pour cela l'ostéopathe dispose de techniques agissantes à divers niveaux :</p>
-                                    <p class="mb-4">→ ostéo-articulaires: Les techniques vont restituer une mobilité au sein d'une articulation via le repositionnement des os qu'elle met en jeu dans leurs axes physiologiques.</p>
-                                    <p class="mb-4">→ musculaires : rééquilibrer les forces musculaires afin d'atténuer la traction faite au niveau des insertions distales qui peut entrainer a terme des déviations d'axe et / ou de plan articulaire.</p>
-                                    <p class="mb-4">→faciales : techniques sur les fascias (=enveloppes qui compartimentent l'espace et les fluides et permettent des plans de glissements entre les divers éléments).</p>
-                                    <p class="mb-4">→ viscérales : afin d'aller ré informer les organes dans leur fonction et leur motilité pour leur permettre d'assurer une meilleure physiologie via le SNV</p>
-                                    <p class="mb-4">→ membraneuses : via la dure-mère ou les sutures crâniennes.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
+    </div>
+</div>
+<!-- Portfolio Modal 2-->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title-->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Ostéopathie : Concept
+                                et Histoire</h2>
+                            <!-- Icon Divider-->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                                <div class="divider-custom-line"></div>
                             </div>
+                            <!-- Portfolio Modal - Text-->
+                            <h3>Definition de l'Organisation Mondiale de la santé :</h3>
+                            <p class="mb-4">•L’ostéopathie repose sur l’utilisation du contact manuel pour le diagnostic
+                                et le traitement. Elle prend en compte les relations entre le corps, l’esprit, la
+                                raison, la santé et la maladie. Elle place l’accent sur l’intégrité structurelle et
+                                fonctionnelle du corps et la tendance intrinsèque de l’organisme à s’auto-guérir.</p>
+                            <p class="mb-4">•Les ostéopathes utilisent une grande variété de techniques thérapeutiques
+                                manuelles pour améliorer les fonctions physiologiques et/ou soutenir l’homéostasie
+                                altérées par des dysfonctions somatiques (les structures du corps), c’est à dire une
+                                altération ou une dégradation de la fonction des composantes concernées du système
+                                somatique : les structures squelettiques, articulaires, et myofasciales, ainsi que les
+                                éléments vasculaires, lymphatiques et neurologiques corrélés.</p>
+                            <p class="mb-4">•Les ostéopathes utilisent leur connaissance des relations entre la
+                                structure et la fonction pour optimiser les capacités du corps à s’auto-réguler et à
+                                s’auto-guérir. Cette approche holistique de la prise en charge du patient est fondée sur
+                                le concept que l’être humain constitue une unité fonctionnelle dynamique, dans laquelle
+                                toutes les parties sont reliées entre elles. »</p>
+                            <h3>D'où vient l'Ostéopathie ?</h3>
+                            <p class="mb-4">•En 1874, Andrew Taylor Still (médecin américain et fondateur du concept
+                                thérapeutique de l'ostéopathie) va énoncer les trois grands principes de l'ostéopathie
+                                :</p>
+                            <p class="mb-4">•"Le corps est une unité, un tout" : L'unité fonctionnelle du corps.</p>
+                            <p class="mb-4">•"La structure gouverne la fonction et la fonction influence la structure" :
+                                Les structures agissent sur les organes et les fonctions agissent sur les structures, à
+                                proximité ou à l'autre bout du corps. Tout dépend de l'individu et des circonstances.
+                                Les choses peuvent se dégrader par ricochet, via les voies de communication que sont le
+                                sang et les nerfs. Le sang et le système lymphatique distribuent la nourriture et
+                                ramassent les "poubelles" sous le contrôle du système nerveux. S'il y a embouteillage où
+                                déviation, dus à une lésion structurelles quelconque, la circulation est entravée, la
+                                nourriture mal distribuée, les déchets mal collectés et le trouble s'installe. Selon A T
+                                Still "il suffit de rétablir la libre circulation en levant barrages et rétrécissements.
+                                Il n'y a plus qu'à compter sur les capacités du corps à guérir lui-même les tissus ;</p>
+                            <p class="mb-4">•"Le corps possède un pouvoir d'autorégulation et d'auto-guérison" : Le
+                                principe de l'homéostasie. Ceci implique qu'un dérangement même minime de la structure
+                                va entrainer des troubles fonctionnels. Lorsque nous levons le dérangement, le corps se
+                                charge lui-même de retrouver la santé. L'ostéopathe agit sur différents systèmes dans le
+                                but de redonner de la mobilité à l'ensemble du corps et de maintenir l'état de santé :
+                                système ostéo-articulaire, système viscéral, système crânien.</p>
+                            <h3>Différentes Techniques dans la boite à outils de l'Ostéopathe :</h3>
+                            <p class="mb-4">L'ostéopathe va rechercher l'amélioration des capacités d'autorégulation,
+                                d'autocorrection en rétablissant une mobilité / motilité. Pour cela l'ostéopathe dispose
+                                de techniques agissantes à divers niveaux :</p>
+                            <p class="mb-4">→ ostéo-articulaires: Les techniques vont restituer une mobilité au sein
+                                d'une articulation via le repositionnement des os qu'elle met en jeu dans leurs axes
+                                physiologiques.</p>
+                            <p class="mb-4">→ musculaires : rééquilibrer les forces musculaires afin d'atténuer la
+                                traction faite au niveau des insertions distales qui peut entrainer a terme des
+                                déviations d'axe et / ou de plan articulaire.</p>
+                            <p class="mb-4">→faciales : techniques sur les fascias (=enveloppes qui compartimentent
+                                l'espace et les fluides et permettent des plans de glissements entre les divers
+                                éléments).</p>
+                            <p class="mb-4">→ viscérales : afin d'aller ré informer les organes dans leur fonction et
+                                leur motilité pour leur permettre d'assurer une meilleure physiologie via le SNV</p>
+                            <p class="mb-4">→ membraneuses : via la dure-mère ou les sutures crâniennes.</p>
+                            <button class="btn btn-primary" data-bs-dismiss="modal">
+                                <i class="fas fa-xmark fa-fw"></i>
+                                Close Window
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 3-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Ostéopathie pour qui ? Pourquoi ?</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Si l'ostéopathie est une thérapie douce qui peut soulager bien des maux, elle ne prétend pas tout soigner et il est important d'en connaître les limites. L'ostéopathie n'est pas en mesure de soigner de grosses pathologies dégénératives telles que :</p>
-                                    <p class="mb-4">Les maladies neurodégénératives (Alzheimer, Parkinson) ;</p>
-                                    <p class="mb-4">Les cancers ;</p>
-                                    <p class="mb-4">Les maladies de systèmes telles que le sida ;</p>
-                                    <p class="mb-4">Les maladies génétiques (trisomie 21, etc.) ;</p>
-                                    <p class="mb-4">Les maladies psychiatriques (autisme, psychose etc.).</p>
-                                    <p class="mb-4">Ne pouvant les guérir, l'ostéopathie peut apporter un confort aux malades et leur rendre la maladie plus supportable.</p>
-                                    <p class="mb-4">Dans certains cas, l'ostéopathie peut même contre-indiquée (fracture, péritonite, appendicite...). Un praticien qualifié est en mesure de vous informer si le cas que vous lui exposez n'est pas de son ressort et il saura vous réorienter vers les spécialistes concernés.</p>
-                                    <p class="mb-4"><strong>Nombres de séances ?</strong></p>
-                                    <p class="mb-4">La plupart des traitements ostéopathiques dureront d'une à trois séances, espacées au minimum de plusieurs jours, mais parfois de semaines voire de mois entiers.</p>
-                                    <p class="mb-4">Certains troubles chroniques profonds pourront nécessiter jusqu'à une dizaine de séances, mais jamais plus.</p>
-                                    <p class="mb-4">Il convient en général de ne pas aller chez l'ostéopathe trop souvent. En moyenne, une à deux fois par an est un maximum</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
+    </div>
+</div>
+<!-- Portfolio Modal 3-->
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title-->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Ostéopathie pour qui ?
+                                Pourquoi ?</h2>
+                            <!-- Icon Divider-->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                                <div class="divider-custom-line"></div>
                             </div>
+                            <!-- Portfolio Modal - Text-->
+                            <p class="mb-4">Si l'ostéopathie est une thérapie douce qui peut soulager bien des maux,
+                                elle ne prétend pas tout soigner et il est important d'en connaître les limites.
+                                L'ostéopathie n'est pas en mesure de soigner de grosses pathologies dégénératives telles
+                                que :</p>
+                            <p class="mb-4">Les maladies neurodégénératives (Alzheimer, Parkinson) ;</p>
+                            <p class="mb-4">Les cancers ;</p>
+                            <p class="mb-4">Les maladies de systèmes telles que le sida ;</p>
+                            <p class="mb-4">Les maladies génétiques (trisomie 21, etc.) ;</p>
+                            <p class="mb-4">Les maladies psychiatriques (autisme, psychose etc.).</p>
+                            <p class="mb-4">Ne pouvant les guérir, l'ostéopathie peut apporter un confort aux malades et
+                                leur rendre la maladie plus supportable.</p>
+                            <p class="mb-4">Dans certains cas, l'ostéopathie peut même contre-indiquée (fracture,
+                                péritonite, appendicite...). Un praticien qualifié est en mesure de vous informer si le
+                                cas que vous lui exposez n'est pas de son ressort et il saura vous réorienter vers les
+                                spécialistes concernés.</p>
+                            <p class="mb-4"><strong>Nombres de séances ?</strong></p>
+                            <p class="mb-4">La plupart des traitements ostéopathiques dureront d'une à trois séances,
+                                espacées au minimum de plusieurs jours, mais parfois de semaines voire de mois
+                                entiers.</p>
+                            <p class="mb-4">Certains troubles chroniques profonds pourront nécessiter jusqu'à une
+                                dizaine de séances, mais jamais plus.</p>
+                            <p class="mb-4">Il convient en général de ne pas aller chez l'ostéopathe trop souvent. En
+                                moyenne, une à deux fois par an est un maximum</p>
+                            <button class="btn btn-primary" data-bs-dismiss="modal">
+                                <i class="fas fa-xmark fa-fw"></i>
+                                Close Window
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 4-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Douleur ? premiers reflexes</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4"><strong>Douleur musculaire</strong> (en lien avec le stress, un effort physique, une chute, des tensions musculaires...) : </p>
-                                    <p class="mb-4"><strong>Le repos.</strong></p>
-                                    <p class="mb-4"><strong>Appliquer du chaud </strong>sur le muscle ou prendre un bain ou une douche chaude, la chaleur va détendre les fibres musculaires et les spasmes par augmentation du flux sanguin ; cela rend vos muscles plus flexibles et réduit la probabilité qu'ils se déchirent davantage.</p>
-                                    <p class="mb-4">Attention cependant à ne pas appliquer de sources de chaleur sèche qui pourra déshydrater les tissus et aggraver la problématique, donc pas de coussin chauffant par exemple.</p>
-                                    <p class="mb-4"><strong>L'hydratation : </strong>la déshydratation favorise les claquages, les souffrances musculo-tendineuses.</p>
-                                    <p class="mb-4"><strong>Le romarin</strong> permet de <strong>dissiper l’inflammation</strong> et, pour cette raison, c’est l’un des meilleurs remèdes maison pour les douleurs musculaires. L’utilisation de ses branches est idéale pour parvenir à une amélioration : il vous suffit de faire bouillir 30 grammes de feuilles de romarin, puis d’y tremper un chiffon et le placer sur la zone touchée par tranches de 20 minutes 5 fois par jours.</p>
-                                    <p class="mb-4"><strong>La banane.</strong> La douleur musculaire s’intensifie souvent par manque de potassium. Ce fruit est riche en potassium et vous permet d’obtenir une amélioration significative de la douleur.</p>
-                                    <p class="mb-4">Attention sur une douleur aigue, préférer le froid : la douleur aigue peut-être associée à une inflammation, le froid va jouer le rôle de constriction et prévenir l'enflure. </p>
-                                    <p class="mb-4">La douleur inflammatoire : </p>
-                                    <p class="mb-4">le signe d'une douleur inflammatoire c'est quelle va se réveiller la nuit souvent en deuxième partie de nuit, lors de la réhydratation des tissus du corps ce qui va réduire les espaces articulaires et par conséquent déclencher la douleur.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
+    </div>
+</div>
+<!-- Portfolio Modal 4-->
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title-->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Douleur ? premiers
+                                reflexes</h2>
+                            <!-- Icon Divider-->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                                <div class="divider-custom-line"></div>
                             </div>
+                            <!-- Portfolio Modal - Text-->
+                            <p class="mb-4"><strong>Douleur musculaire</strong> (en lien avec le stress, un effort
+                                physique, une chute, des tensions musculaires...) : </p>
+                            <p class="mb-4"><strong>Le repos.</strong></p>
+                            <p class="mb-4"><strong>Appliquer du chaud </strong>sur le muscle ou prendre un bain ou une
+                                douche chaude, la chaleur va détendre les fibres musculaires et les spasmes par
+                                augmentation du flux sanguin ; cela rend vos muscles plus flexibles et réduit la
+                                probabilité qu'ils se déchirent davantage.</p>
+                            <p class="mb-4">Attention cependant à ne pas appliquer de sources de chaleur sèche qui
+                                pourra déshydrater les tissus et aggraver la problématique, donc pas de coussin
+                                chauffant par exemple.</p>
+                            <p class="mb-4"><strong>L'hydratation : </strong>la déshydratation favorise les claquages,
+                                les souffrances musculo-tendineuses.</p>
+                            <p class="mb-4"><strong>Le romarin</strong> permet de <strong>dissiper
+                                l’inflammation</strong> et, pour cette raison, c’est l’un des meilleurs remèdes maison
+                                pour les douleurs musculaires. L’utilisation de ses branches est idéale pour parvenir à
+                                une amélioration : il vous suffit de faire bouillir 30 grammes de feuilles de romarin,
+                                puis d’y tremper un chiffon et le placer sur la zone touchée par tranches de 20 minutes
+                                5 fois par jours.</p>
+                            <p class="mb-4"><strong>La banane.</strong> La douleur musculaire s’intensifie souvent par
+                                manque de potassium. Ce fruit est riche en potassium et vous permet d’obtenir une
+                                amélioration significative de la douleur.</p>
+                            <p class="mb-4">Attention sur une douleur aigue, préférer le froid : la douleur aigue
+                                peut-être associée à une inflammation, le froid va jouer le rôle de constriction et
+                                prévenir l'enflure. </p>
+                            <p class="mb-4">La douleur inflammatoire : </p>
+                            <p class="mb-4">le signe d'une douleur inflammatoire c'est quelle va se réveiller la nuit
+                                souvent en deuxième partie de nuit, lors de la réhydratation des tissus du corps ce qui
+                                va réduire les espaces articulaires et par conséquent déclencher la douleur.</p>
+                            <button class="btn btn-primary" data-bs-dismiss="modal">
+                                <i class="fas fa-xmark fa-fw"></i>
+                                Close Window
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 5-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="{% static 'assets/img/portfolio/safe.png' %}" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
+    </div>
+</div>
+<!-- Portfolio Modal 5-->
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title-->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
+                            <!-- Icon Divider-->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                                <div class="divider-custom-line"></div>
                             </div>
+                            <!-- Portfolio Modal - Image-->
+                            <img class="img-fluid rounded mb-5" src="{% static 'assets/img/portfolio/safe.png' %}"
+                                 alt="..."/>
+                            <!-- Portfolio Modal - Text-->
+                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
+                                assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit
+                                asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                            <button class="btn btn-primary" data-bs-dismiss="modal">
+                                <i class="fas fa-xmark fa-fw"></i>
+                                Close Window
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 6-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="{% static 'assets/img/portfolio/submarine.png' %}" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
+    </div>
+</div>
+<!-- Portfolio Modal 6-->
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title-->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
+                            <!-- Icon Divider-->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                                <div class="divider-custom-line"></div>
                             </div>
+                            <!-- Portfolio Modal - Image-->
+                            <img class="img-fluid rounded mb-5" src="{% static 'assets/img/portfolio/submarine.png' %}"
+                                 alt="..."/>
+                            <!-- Portfolio Modal - Text-->
+                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
+                                assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit
+                                asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                            <button class="btn btn-primary" data-bs-dismiss="modal">
+                                <i class="fas fa-xmark fa-fw"></i>
+                                Close Window
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 {% endblock %}

@@ -24,6 +24,11 @@ jobs:
     docker:
       - image: cimg/python:3.9.0
       - image: cimg/postgres:13.4
+        environment:
+          POSTGRES_USER: postgres
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - run:

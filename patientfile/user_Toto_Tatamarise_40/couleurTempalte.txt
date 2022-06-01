@@ -1,0 +1,14 @@
+Le client hésitait sur les couleurs entre bleu pour le côté médical et vert pour le naturel
+
+
+blue1:
+Primary: #477ea9
+Secondary: #76a1b5
+
+blue2:
+Primary: #477ea9
+Secondary: #0063b2
+
+Green:
+primary: #6fdc9b
+secondary: #1abc9c

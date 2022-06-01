@@ -29,5 +29,6 @@ urlpatterns = [
     path('gestionosteo/admin/', HomeAdminView.as_view(), name="admin-index"),
     path('gestionosteo/patient/', include("patient.urls")),
     path('gestionosteo/schedule/', include("schedule.urls")),
+    path('gestionosteo/accounting/', include("accounting.urls")),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

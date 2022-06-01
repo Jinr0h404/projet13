@@ -9,6 +9,9 @@ class Price(models.Model):
     session_type = models.CharField(max_length=80, blank=False, null=False)
     price = models.IntegerField(blank=False)
 
+    def __str__(self):
+        return f"{self.session_type}"
+
 
 class Bill(models.Model):
     """this class is for the django orm, it gives the parameters for the

@@ -1,0 +1,39 @@
+{% extends 'base_admin.html' %}
+
+{% block content %}
+{% load static %}
+<!-- Masthead-->
+        <header class="masthead bg-primary text-white">
+            <div class="container">
+                <div class="row">
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0 text-center">Facture</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                </div>
+                <!-- Masthead Subheading-->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Facture pour la séance du: </strong> {{ session.appointment_date }}</p>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="form-actions col-3">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button class="btn btn-primary btn-xl btn-outline-light" id="submitButton" type="submit">Editer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+{% endblock %}
+
+{% block script_content %}
+<script type="text/javascript"></script>
+{% endblock %}

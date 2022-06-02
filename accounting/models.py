@@ -6,7 +6,7 @@ from schedule.models import Session
 class Price(models.Model):
     """this class is for the django orm, it gives the parameters for the
     creation of the table of the same name in the psql database."""
-    session_type = models.CharField(max_length=80, blank=False, null=False)
+    session_type = models.CharField(max_length=80, blank=False, verbose_name='type de séance', null=False)
     price = models.IntegerField(blank=False)
 
     def __str__(self):

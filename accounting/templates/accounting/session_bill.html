@@ -18,14 +18,18 @@
                 <!-- Masthead Subheading-->
                 <div class="row">
                     <div class="col-lg-6">
-                        <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Facture pour la séance du: </strong> {{ session.appointment_date }}</p>
+                        <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Facture de la séance du: </strong> {{ session.appointment_date }}</p>
+                        <p class="masthead-subheading font-weight-light mb-0 text-left"><strong>Pour le patient: </strong>{{ patient.last_name }} {{ patient.first_name }}</p>
                     </div>
                 </div>
+                <div class="row">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="hidden" name="patient_id" value={{patient.id}}>
+                </div>
                 <div class="row justify-content-end">
-                    <div class="form-actions col-3">
-                        <form method="post">
-                            {% csrf_token %}
-                            {{ form.as_p }}
+                    <div class="col-3">
                             <button class="btn btn-primary btn-xl btn-outline-light" id="submitButton" type="submit">Editer</button>
                         </form>
                     </div>

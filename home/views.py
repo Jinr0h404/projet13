@@ -21,7 +21,6 @@ class HomeView(View):
         the visitor's message"""
         form = ContactForm(request.POST)
         if form.is_valid():
-            print(form.cleaned_data)
             from_email = form.cleaned_data['email']
             phone = form.cleaned_data['phone']
             from_name = form.cleaned_data['name']

@@ -5,7 +5,7 @@ from patient.models import Patient
 from apposteo.tests.fixture_db_models import patient_fixture
 
 
-@pytest.mark.django_db()
+@pytest.mark.django_db
 def test_edit_calendar_url(patient_fixture):
     # pk = Patient.objects.get(pk=1)
     path = reverse('edit-fullcalendar', kwargs={'pk': 1})

@@ -75,11 +75,9 @@ class TestHomeViewClass():
 
 class EmailTest(TestCase):
     def test_send_email(self):
-        client = Client()
         path = reverse("home-index")
-        response = client.post(path, {'email': 'toto@openclassrooms.com', 'name': 'Toto Dupond', 'phone': '0606060606',
-                                      'message': 'Bonjour, que faire quand mal au dos?'})
-
+        response = self.client.post(path, {'email': 'toto@openclassrooms.com', 'name': 'Toto Dupond',
+                                           'phone': '0606060606', 'message': 'Bonjour, que faire quand mal au dos?'})
         # Test that one message has been sent.
         self.assertEqual(len(mail.outbox), 1)
         # Verify that the subject of the first message is correct.

@@ -2,7 +2,7 @@ import pytest
 from patient.models import Patient
 
 
-@pytest.fixture
+@pytest.fixture(autouse=True)
 def patient_fixture(db) -> Patient:
     Patient.objects.create(last_name="Toto",
                            first_name="Toto",

@@ -59,6 +59,7 @@ class ManagePatientView(LoginRequiredMixin, DetailView):
         the new session form in the view template."""
         form = UploadFileForm()
         form_session = CreateSessionForm()
+        # Call the base implementation first with super() to get a context
         context = super(ManagePatientView, self).get_context_data(**kwargs)
         address_detail = Address.objects.filter(patient_unique_id=self.kwargs['pk'])
         session_list = Session.objects.filter(patient_unique_id=self.kwargs['pk'])

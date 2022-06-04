@@ -5,12 +5,17 @@ from django.test import Client
 from pytest_django.asserts import assertTemplateUsed
 from schedule.models import Session
 from patient.models import Patient
+from django.contrib.auth.models import User
 from apposteo.tests.fixture_db_models import patient_fixture
 
 
-@pytest.mark.django_db
+@pytest.mark.django_db(reset_sequences=True)
 def test_BillPdfView_view(patient_fixture):
     client = Client()
+    username = "test_user"
+    password = "Troubadour"
+    User.objects.create_superuser(username=username, password=password)
+    client.login(username=username, password=password)
     patient = Patient.objects.get(pk=1)
     Session.objects.create(appointment_date="10-06-2022",
                            reason="mal aux dents",

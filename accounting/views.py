@@ -8,9 +8,10 @@ from schedule.models import Session
 from patient.models import Patient, Address
 from .models import Price
 from .forms import BillSessionForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class BillPdfView(View):
+class BillPdfView(LoginRequiredMixin, View):
     """the BillPdfView class allows the display of an invoice edition page and to generate an invoice in pdf format"""
     def get(self, request, pk):
         """the GET method allows the display of the page for editing an invoice and the form with the choice of

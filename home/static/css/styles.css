@@ -11525,5 +11525,14 @@ html {
 
 .form_personalized {
     color: #6c757d;
-    margin-top: 2rem
+    margin-top: 2rem;
+}
+
+.paginate {
+    color : white;
+}
+
+.patient_not_found {
+    margin: 40px;
+    padding: 40px;
 }

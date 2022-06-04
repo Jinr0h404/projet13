@@ -7,6 +7,7 @@ from django.views import View
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 
 
 # Create your views here.
@@ -29,6 +30,10 @@ class HomeView(View):
             subject = 'Renseignement AppOsteo'
             send_mail(subject, message, from_email, ['noritakasawamura84@gmail.com'])
             """use request.path to avoid form resending requests when refreshing the page"""
+            messages.success(request, 'Votre message a bien été envoyé')
+            return redirect(request.path)
+        else:
+            messages.error(request, "Votre message n'a pas été envoyé, il semble que le formulaire soit mal renseigné")
             return redirect(request.path)
 
 

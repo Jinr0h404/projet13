@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 
 @pytest.mark.django_db
-class TestViewClass():
+class TestHomeViewClass():
     def test_HomeView_view(self):
         client = Client()
         path = reverse('home-index')

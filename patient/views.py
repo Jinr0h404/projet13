@@ -88,16 +88,25 @@ class SearchPatientView(LoginRequiredMixin, ListView):
     template_name = "patient/search_patient.html"
     model = Patient
     context_object_name = "patient"
+    paginate_by = 10
 
     def get_queryset(self):
-        """the get_queryset method retrieves the elements of the query. If there is an element then it searches in
-        the list of users for matches of last name and / or first names. If there is a match, it returns the list
-        of users found, otherwise the list of all users"""
-        name = self.kwargs.get('query')
+        """the get_queryset method retrieves the elements of the query. If there isn't element, it returns the list of
+        all users, otherwise, if there is an element then it searches in the list of users for matches of last name
+        and / or first names. If there is a match, it returns the list of users found, otherwise an advert than there
+        is nobody with that name"""
+        # name = self.kwargs.get('query')
         name = self.request.GET.get('query')
-        object_list = self.model.objects.all()
+        object_list = self.model.objects.all().order_by('last_name')
         if name:
             object_list = object_list.filter(Q(last_name__icontains=name) | Q(first_name__icontains=name))
+            print(len(object_list))
+            if len(object_list) > 0:
+                print(object_list[0].last_name)
+                return object_list
+            else:
+                object_list = self.model.objects.none()
+                return object_list
         return object_list
 
 

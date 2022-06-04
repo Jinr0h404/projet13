@@ -17,6 +17,13 @@
         </div>
         <!-- Masthead Subheading-->
         <p class="masthead-subheading font-weight-light mb-0">Tout savoir sur l'activité du cabinet</p>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     </div>
 </header>
 <!-- Portfolio Section-->

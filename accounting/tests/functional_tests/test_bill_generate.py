@@ -37,7 +37,10 @@ class TestBill(StaticLiveServerTestCase):
                                patient_unique_id=patient)
         Price.objects.create(session_type="session test",
                              price=45)
-        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         self.browser.get(self.live_server_url + reverse("create-session-bill", kwargs={'pk': 2}))
         login = self.browser.find_element(By.ID, "login")
         login.send_keys("test_user")

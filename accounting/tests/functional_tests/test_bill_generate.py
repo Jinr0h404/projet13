@@ -49,7 +49,6 @@ class TestBill(StaticLiveServerTestCase):
         edit = self.browser.find_element(By.ID, "submitButton")
         edit.click()
         self.assertEqual(
-            self.browser.current_url, self.live_server_url + reverse("create-session-bill", kwargs={'pk': 2})
-)
+            self.browser.current_url, self.live_server_url + reverse("create-session-bill", kwargs={'pk': 2}))
         self.assertEqual(self.browser.find_element(By.TAG_NAME, "h1").text, "FACTURE")
         self.browser.close()

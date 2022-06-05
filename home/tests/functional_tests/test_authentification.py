@@ -1,7 +1,7 @@
 import pytest
 
 from selenium import webdriver
-from webdriver_manager.chrome import (ChromeDriverManager)
+from webdriver_manager.chrome import ChromeDriverManager
 # from selenium.webdriver.chrome.service import Service
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.contrib.auth.models import User
@@ -11,7 +11,7 @@ from selenium.webdriver.common.by import By
 
 
 class TestAuthentification(StaticLiveServerTestCase):
-    @pytest.mark.django_db
+    @pytest.mark.django_db(reset_sequences=True)
     def test_signin(self):
         """functional test with selenium to verify the user signin scenario."""
         # os.chmod('home/tests/functional_tests/chromedriver', 755)

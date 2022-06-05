@@ -25,7 +25,6 @@ jobs:
     steps:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
-        install-dir:
       - checkout
       - run:
           name: requirements

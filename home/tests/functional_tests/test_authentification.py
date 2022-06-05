@@ -1,7 +1,7 @@
 import pytest
 
 from selenium import webdriver
-from webdriver_manager.chrome import (ChromeDriverManager)
+# from webdriver_manager.chrome import (ChromeDriverManager)
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -15,9 +15,9 @@ class TestAuthentification(StaticLiveServerTestCase):
         username = "test_user"
         password = "Troubadour"
         User.objects.create_superuser(username=username, password=password)
-        # self.s = Service(executable_path="home/tests/functional_tests/chromedriver")
-        # self.browser = webdriver.Chrome(service=self.s)
-        self.browser = webdriver.Chrome(ChromeDriverManager().install())
+        self.s = Service(executable_path="home/tests/functional_tests/chromedriver")
+        self.browser = webdriver.Chrome(service=self.s)
+        # self.browser = webdriver.Chrome(ChromeDriverManager().install())
         self.browser.get(self.live_server_url + reverse("home-signin"))
         login = self.browser.find_element(By.ID, "login")
         login.send_keys("test_user")

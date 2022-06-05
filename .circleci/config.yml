@@ -24,7 +24,6 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
       - checkout
       - run:
           name: requirements

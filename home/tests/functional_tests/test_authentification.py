@@ -7,12 +7,14 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.contrib.auth.models import User
 from django.urls import reverse
 from selenium.webdriver.common.by import By
+import os
 
 
 class TestAuthentification(StaticLiveServerTestCase):
     @pytest.mark.django_db
     def test_signin(self):
         """functional test with selenium to verify the user signin scenario."""
+        os.chmod('home/tests/functional_tests/chromedriver', 755)
         username = "test_user"
         password = "Troubadour"
         User.objects.create_superuser(username=username, password=password)

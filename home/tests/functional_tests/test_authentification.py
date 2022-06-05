@@ -15,7 +15,7 @@ class TestAuthentification(StaticLiveServerTestCase):
         username = "test_user"
         password = "Troubadour"
         User.objects.create_superuser(username=username, password=password)
-        self.s = Service("home/tests/functional_tests/chromedriver")
+        self.s = Service(executable_path="home/tests/functional_tests/chromedriver")
         self.browser = webdriver.Chrome(service=self.s)
         self.browser.get(self.live_server_url + reverse("home-signin"))
         login = self.browser.find_element(By.ID, "login")

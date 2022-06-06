@@ -17,9 +17,9 @@ import os.path
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['apposteo.herokuapp.com', '*']
+ALLOWED_HOSTS = ['apposteo.herokuapp.com', '*', 'localhost', '127.0.0.1']
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/

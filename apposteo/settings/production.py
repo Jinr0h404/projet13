@@ -19,7 +19,7 @@ import os.path
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['apposteo.herokuapp.com']
+ALLOWED_HOSTS = ['apposteo.herokuapp.com', '*']
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/

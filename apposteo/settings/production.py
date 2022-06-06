@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['apposteo.herokuapp.com']
+ALLOWED_HOSTS = ['apposteo.herokuapp.com', '*']
 
 
 # Application definition

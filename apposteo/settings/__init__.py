@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY", 'django-insecure-2*s%6k&62#r0mvwl-=4yvlv4q=i-kp4nq=p@u(!#4!&ntc0gm+')
 
-CSRF_TRUSTED_ORIGINS = ['apposteo.herokuapp.com', 'https://apposteo.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['https://apposteo.herokuapp.com']
 
 # EMAIL SETUP
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -75,7 +75,9 @@ interface at the address http://127.0.0.1:8000/gestionosteo
 4. edition of invoice in pdf tool:
 Also fill in the columns of the price table in the database with the values you want for the price and the type
 of consultation in order to take advantage of the invoice editing tool.
-
+you can do this directly from your database, or by going through the django admin bdd interface at the address 
+http://127.0.0.1:8000/gestionbdd or by loading the export of the project table with the command:
+- `python manage.py loaddata price.json`
 
 ## Application
 

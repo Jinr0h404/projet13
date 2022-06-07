@@ -1,0 +1,1 @@
+[{"model": "accounting.price", "pk": 1, "fields": {"session_type": "enfant", "price": 40}}, {"model": "accounting.price", "pk": 2, "fields": {"session_type": "adulte", "price": 50}}, {"model": "accounting.price", "pk": 3, "fields": {"session_type": "multiple", "price": 40}}]

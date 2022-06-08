@@ -10,7 +10,11 @@ from django.contrib.auth.models import User
 
 @pytest.mark.django_db(reset_sequences=True)
 class TestScheduleViewClass():
+    """the TestScheduleViewClass class contains the test methods of the different views of the schedule application"""
     def test_ScheduleCalendarView_view(self):
+        """Create a test client. Query the retrieved URL using the reverse() function. Checks that the HTTP
+        status code is 200 or the expected code. Checks that the model used is the one expected. Verifies that
+        the content of the html corresponds to that expected"""
         client = Client()
         username = "test_user"
         password = "Troubadour"
@@ -36,6 +40,9 @@ class TestScheduleViewClass():
         assertTemplateUsed(response, "schedule/fullcalendar.html")
 
     def test_ScheduleCalendarView_post_view(self):
+        """Creates a test client. Make a post request on the URL retrieved using the reverse () function.
+        Check that the new event is register in schedule. Check that the HTTP status code is 302 due to the
+        redirect."""
         client = Client()
         username = "test_user"
         password = "Troubadour"

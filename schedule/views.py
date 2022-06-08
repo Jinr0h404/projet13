@@ -72,7 +72,6 @@ class ScheduleCalendarView(LoginRequiredMixin, View):
         if form.is_valid() and form_info.is_valid():
             """use request.path to avoid form resending requests when refreshing the page"""
             schedule = form.save(commit=False)
-            print(schedule.appointment_hour_stop)
             schedule_info = form_info.save(commit=False)
             patient_lastname = Q(last_name__contains=schedule_info.last_name)
             patient_firstname = Q(first_name__contains=schedule_info.first_name)

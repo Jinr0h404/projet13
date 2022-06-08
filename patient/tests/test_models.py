@@ -1,11 +1,12 @@
 import pytest
 from patient.models import user_directory_path, Attachment, Patient
-from django.test import Client
 from apposteo.tests.fixture_db_models import patient_fixture
 
 
 @pytest.mark.django_db(reset_sequences=True)
 def test_attachment_path_model(patient_fixture):
+    """tests that the attachment model saves the attachment with the correct name information from the
+    database user"""
     join_doc = Attachment.objects.create(
                document_name="test_file",
                patient_unique_id=Patient.objects.get(pk=1))

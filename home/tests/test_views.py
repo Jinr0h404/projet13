@@ -10,7 +10,11 @@ from django.contrib.auth.models import User
 
 @pytest.mark.django_db
 class TestHomeViewClass():
+    """the TestHomeViewClass class contains the test methods of the different views of the home application"""
     def test_HomeView_view(self):
+        """Create a test client. Query the retrieved URL using the reverse() function. Checks that the HTTP
+        status code is 200 or the expected code. Checks that the model used is the one expected. Verifies that
+        the content of the html corresponds to that expected"""
         client = Client()
         path = reverse('home-index')
         response = client.get(path)
@@ -23,6 +27,9 @@ class TestHomeViewClass():
         assertTemplateUsed(response, "home/index.html")
 
     def test_LoginAdminView_view(self):
+        """Create a test client. Query the retrieved URL using the reverse() function. Checks that the HTTP
+        status code is 200 or the expected code. Checks that the model used is the one expected. Verifies that
+        the content of the html corresponds to that expected"""
         client = Client()
         path = reverse('home-signin')
         response = client.get(path)
@@ -35,6 +42,8 @@ class TestHomeViewClass():
         assertTemplateUsed(response, "home/signin.html")
 
     def test_LoginAdminView_signin_view(self):
+        """Creates a test client. Make a post request on the URL retrieved using the reverse () function. Check that the
+        HTTP status code is 302 due to the redirect."""
         client = Client()
         username = "test_user"
         password = "Troubadour"
@@ -45,6 +54,9 @@ class TestHomeViewClass():
         assert response.status_code == 302
 
     def test_LoginAdminView_bad_signin_view(self):
+        """Create a test client. Make a post request on the URL retrieved using the reverse () function. Checks
+        that the HTTP status code is 200 or the expected code. Checks that the model used is the one expected.
+        Verifies that the content of the html corresponds to that expected"""
         client = Client()
         username = "test_user"
         password = "Troubadour"
@@ -61,8 +73,7 @@ class TestHomeViewClass():
 
     def test_LogoutAdminView_view(self):
         """Creates a test client. Make a request on the URL retrieved using the reverse () function.
-        Check that the HTTP status code is 200 or the expected code. Check that the template used is the
-        expected one"""
+        Check that the HTTP status code is 302 due to the redirect."""
         client = Client()
         username = "test_user"
         password = "Troubadour"
@@ -75,6 +86,8 @@ class TestHomeViewClass():
 
 class EmailTest(TestCase):
     def test_send_email(self):
+        """Make a post request on the URL retrieved using the reverse () function. Check that one message has been
+        sent and the content of the massage subject. Check that the HTTP status code is 302 due to the redirect."""
         path = reverse("home-index")
         response = self.client.post(path, {'email': 'toto@openclassrooms.com', 'name': 'Toto Dupond',
                                            'phone': '0606060606', 'message': 'Bonjour, que faire quand mal au dos?'})

@@ -11,6 +11,9 @@ from apposteo.tests.fixture_db_models import patient_fixture
 
 @pytest.mark.django_db(reset_sequences=True)
 def test_BillPdfView_view(patient_fixture):
+    """Create a test client. Query the retrieved URL using the reverse() function. Checks that the HTTP
+    status code is 200 or the expected code. Checks that the model used is the one expected. Verifies that
+    the content of the html corresponds to that expected"""
     client = Client()
     username = "test_user"
     password = "Troubadour"

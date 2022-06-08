@@ -16,7 +16,7 @@ import time
 class TestBill(StaticLiveServerTestCase):
     @pytest.mark.django_db(reset_sequences=True)
     def test_bill_generate(self):
-        """functional test with selenium to verify the user signin scenario."""
+        """functional test with selenium to verify the scenario of generating an invoice by the user"""
         username = "test_user"
         password = "Troubadour"
         User.objects.create_superuser(username=username, password=password)

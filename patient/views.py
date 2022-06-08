@@ -101,9 +101,7 @@ class SearchPatientView(LoginRequiredMixin, ListView):
         object_list = self.model.objects.all().order_by('last_name')
         if name:
             object_list = object_list.filter(Q(last_name__icontains=name) | Q(first_name__icontains=name))
-            print(len(object_list))
             if len(object_list) > 0:
-                print(object_list[0].last_name)
                 return object_list
             else:
                 object_list = self.model.objects.none()

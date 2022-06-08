@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<!-- Masthead-->
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar mb-5" src="{% static 'assets/img/avataaars.svg' %}" alt="..."/>
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">VOTRE OSTEOPATHE</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">Désolé, la page que vous cherchez n'a pas été trouvée</p>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</header>
+<!-- Contact Section-->
+<section class="page-section" id="contact">
+    <div class="container">
+        <!-- Contact Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Me contacter</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fa-solid fa-bone"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Contact Section Form-->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+                <form id="contactForm" method="post">
+                    {% csrf_token %}
+                    <!-- Name input-->
+                    <div class="form-floating mb-3 form-group">
+                        <input class="form-control" id="name" name="name" type="text" placeholder="Entrer votre nom"/>
+                        <label for="name">Nom complet</label>
+                    </div>
+                    <!-- Email address input-->
+                    <div class="form-floating mb-3 form-group">
+                        <input class="form-control" id="email" name="email" type="email" placeholder="nom@exemple.com"/>
+                        <label for="email">Adresse e-mail</label>
+                    </div>
+                    <!-- Phone number input-->
+                    <div class="form-floating mb-3 form-group">
+                        <input class="form-control" id="phone" name="phone" type="tel" placeholder="0102030405"/>
+                        <label for="phone">Numéro de téléphone</label>
+                    </div>
+                    <!-- Message input-->
+                    <div class="form-floating mb-3 form-group">
+                        <textarea class="form-control" id="message" name="message"
+                                  placeholder="Posez votre question ici" style="height: 10rem"></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <!-- Submit Button-->
+                    <div class="form-actions">
+                        <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -2,8 +2,6 @@ import pytest
 
 from django.urls import reverse
 from django.test import Client
-from django.core import mail
-from django.test import TestCase
 from patient.models import Patient
 from pytest_django.asserts import assertTemplateUsed
 from django.contrib.auth.models import User
@@ -12,6 +10,7 @@ from apposteo.tests.fixture_db_models import patient_fixture
 
 @pytest.mark.django_db
 class TestPatientViewClass():
+    """the TestPatientViewClass class contains the test methods of the different views of the patient application"""
     def test_PatientCreateView_view(self):
         """Creates a test client. Make a request on the URL retrieved using the reverse () function.
         Check that the HTTP status code is 302 if user not connected and 200 if user is connected.
@@ -79,7 +78,11 @@ class TestManagePatientView():
 
 @pytest.mark.django_db(reset_sequences=True)
 class TestSearchPatientView():
+    """the TestSearchPatientClass class contains the test methods of the search view of the patient application"""
     def test_SearcPatientView(self):
+        """Create a test client. Query the retrieved URL using the reverse() function. Checks that the HTTP
+        status code is 200 or the expected code. Checks that the model used is the one expected. Verifies that
+        the content of the html corresponds to that expected if the client exists"""
         client = Client()
         username = "test_user"
         password = "Troubadour"
@@ -95,6 +98,9 @@ class TestSearchPatientView():
         assertTemplateUsed(response, 'patient/search_patient.html')
 
     def test_SearcPatientView_none(self):
+        """Create a test client. Query the retrieved URL using the reverse() function. Checks that the HTTP
+        status code is 200 or the expected code. Checks that the model used is the one expected. Verifies that
+        the content of the html corresponds to that expected if the client doesn't exist"""
         client = Client()
         username = "test_user"
         password = "Troubadour"
